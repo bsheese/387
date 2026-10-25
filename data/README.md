@@ -25,6 +25,14 @@ To rebuild `pets4.zip`, download and extract `images.tar.gz` from
 <https://www.robots.ox.ac.uk/~vgg/data/pets/> and run
 `python data/make_pets4.py /path/to/images`.
 
+## Palmer penguins (20_0_3)
+
+`penguins.csv` is the same file as cs377's `data/penguins.csv` (344 penguins; 342 have
+flipper length and body mass). From the palmerpenguins package by Allison Horst, Alison Hill
+and Kristen Gorman, released under CC0.
+
+## Pets source and license
+
 **Source and license.** O. M. Parkhi, A. Vedaldi, A. Zisserman and C. V. Jawahar,
 "Cats and Dogs," CVPR 2012. The dataset is licensed CC BY-SA 4.0, and these
 derived files are shared under the same license.
