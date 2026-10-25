@@ -1,30 +1,40 @@
 # 19_0 Whole Game — TODO
 
-**Status:** new. **Days:** 2 (decided 2026-10-24). **Assumes:** nothing beyond Python.
+**Status:** drafted 2026-10-25 (both notebooks, outline, glossary, practice quiz); not yet tested in Colab. **Days:** 2 (decided 2026-10-24). **Assumes:** nothing beyond Python.
 
 Purpose: on day one students fine-tune a pretrained image model and use it, before they know what a weight is (fast.ai's order). Say it's a black box on purpose. The 19_1 on-ramp then teaches the ML basics **on this same model** (decided 2026-10-24), and 22_1 opens up the box.
 
-Because 19_1 builds on it, 19_0 must leave behind:
-- a fine-tuned model, its predictions and probabilities on a held-out set, and its train/validation accuracy per epoch (for 19_1_1 and 19_1_2);
-- the ResNet-18 features (512 numbers per image), computed once and cached, so 19_1_3 can fit a single neuron on them in seconds.
+What 19_0 leaves behind for 19_1 (all in `data/`, see `data/README.md`):
+- `pets4_head.pt`: the trained last layer, so the model can be rebuilt without training
+- `pets4_history.csv`: train loss, train accuracy and validation accuracy per epoch (8 epochs)
+- `pets4_predictions.csv`: predicted breed, 4 scores and 4 probabilities for all 800 photos
+- `pets4_features.npz`: the 512 ResNet-18 features for all 800 photos
 
 ## Notebooks
-- [ ] `19_0_1_Your_First_Image_Model.ipynb` (day 1): load a pretrained ResNet-18 (torchvision), fine-tune the last layer on Oxford-IIIT Pets, and predict on new images. Includes day-one Colab setup.
-- [ ] `19_0_2_What_Just_Happened.ipynb` (day 2): what the model got right and wrong, with misclassified images; save the predictions, probabilities and cached features for 19_1. Short course intro / history of deep learning, and the ethics prompt.
-- [ ] `19_0_outline.md`, `19_0_glossary.md`, `19_0_practice_quiz.ipynb`
+- [x] `19_0_1_Your_First_Image_Model.ipynb` (day 1): Colab setup, the photos, the pretrained ResNet-18's own ImageNet guesses, freeze + replace the last layer, train 8 epochs, test accuracy, `predict()`, upload your own photo, save.
+- [x] `19_0_2_What_Just_Happened.ipynb` (day 2): rebuild from the course copy, the 512 features, test results table and crosstab, the mistakes, confidence, other breeds, save outputs for 19_1, history timeline, ethics discussion.
+- [x] `19_0_outline.md`, `19_0_glossary.md`, `19_0_practice_quiz.ipynb`
 
-## Decide
+## Decided
 - [x] Dataset: Oxford-IIIT Pets (decided 2026-10-24).
-- [ ] **Classes:** 19_1_4 needs more than 2 classes for softmax, so use a few breeds (3–5) rather than cat vs. dog. All 37 breeds is probably too many to read a confusion matrix.
-- [ ] Hide the training code in a helper module, or show it uncommented? (fast.ai shows it; 377's 18_1 used XGBoost as a black box)
-- [ ] Where the saved predictions and features live: computed live in class (runtime), or saved in `data/` so 19_1 loads them
+- [x] **Classes** (decided 2026-10-25): 4 breeds, in look-alike pairs: Birman, Ragdoll, basset hound, beagle. Saved run: test accuracy 0.90; mistakes are 12 Ragdoll→Birman, 4 Birman→Ragdoll, 4 basset→beagle, no cat/dog confusions.
+- [x] **Training code is shown** (decided 2026-10-25), with comments, labeled as code to run and watch rather than study.
+- [x] **Saved predictions and features go in `data/`** (decided 2026-10-25), made by running the notebooks. 19_1 downloads them, so every student sees the same numbers.
+- [x] Both notebooks keep their saved outputs (listed in `KEEP_OUTPUTS` in `smoke_test.py`). They are the CPU fallback, and 19_1 refers to the same numbers.
+
+## Design notes
+- The model stays in `eval()` mode the whole time, including during training. In `train()` mode the frozen ResNet would still update its batch-norm statistics, and then saving only the last layer would not reproduce the model. 21_1 explains train vs. eval mode.
+- Data comes from `data/pets4.zip` (17 MB, built by `data/make_pets4.py`) rather than the 800 MB full dataset.
+- The notebooks only work in Colab after `data/` is pushed to GitHub.
 
 ## Runtime
-- [ ] Day one has setup plus fine-tuning in 70 minutes. It needs a CPU path (fine-tune on a small subset, or load a fine-tuned checkpoint) in case the free GPU isn't available.
+- [x] CPU path: the notebook works on a CPU, and `USE_COURSE_COPY = True` loads the trained last layer if training is too slow.
+- [ ] **Time it in Colab**, on both the free GPU and the CPU runtime. Locally (M2 CPU), one epoch is about 7 s as a script; as a guess, free Colab's CPU is 3–5 times slower, which puts 8 epochs at a few minutes. 19_0_2's slowest cell (features for 800 photos) takes 14 s locally. Local timings of the training cell were inconsistent: about 1 minute in most runs, but 6 and 17 minutes in two nbconvert runs. Per-batch timing inside a kernel later showed the normal speed, so the slow runs look like a problem with this machine, not with the notebook. That is one more reason to time it in Colab.
+- [ ] The 19_0_2 mistakes grid makes the notebook about 4 MB. Shrink the figures if that becomes a problem.
 
 ## Activities
-- [ ] Pair activity (day 1 or 2): change the breeds or the number of training images, then predict and observe the effect on accuracy
-- [ ] Ethics prompt: where the images came from and who is missing from them
+- [ ] Pair activity (day 1 or 2): change `IMAGES_PER_BREED` (for example 5, 20, 100), retrain, and compare accuracy and the mistakes. Changing the breeds would need more breeds in `pets4.zip`.
+- [ ] Ethics prompt: 19_0_2 Section 9 has the discussion questions; tie them to the pair activity so they get class time.
 
 ## Exam
 - [ ] Unit 19 exam covers 19_0 + 19_1, asked about this model (see the 19_1 TODO)
