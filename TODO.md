@@ -25,6 +25,7 @@ Suggested order: schedule (1, 3) → on-ramp (2) → the rest.
   - [x] Breast cancer dropped from the course (5 datasets + XOR)
 - [x] 19_0 gets 2 days (decided 2026-10-24)
 - [ ] Test DistilBERT fine-tuning and the diffusion demo on free Colab in December, before writing units 22–23
+  - `tools/colab_check.ipynb` (built by `tools/make_colab_check.py`, 2026-10-25) does this: Colab versions, every course notebook through `smoke_test.py --remote-data`, DDPM CIFAR-10 / BK-SDM-Small / SD 1.5, DistilBERT on 2,000 IMDB reviews, the SST-2 pipeline, GPT-2. Run once on a T4 GPU and once on CPU; paste back the last cell. Repeat on the GPU in January 2027.
 
 2. On-ramp design
 - [x] **Teach the on-ramp through the week-1 image model** (decided 2026-10-24). The 377 notebooks are optional reference only. See the 19_1 TODO.
