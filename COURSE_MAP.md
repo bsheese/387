@@ -59,7 +59,7 @@ model) are not counted as datasets.
 
 | Unit | Modules | Role | Datasets | Assumes | Status |
 |---|---|---|---|---|---|
-| `19_onramp` | `19_0_Whole_Game`, `19_1_ML_Foundations` | Fine-tune a pretrained image model in the first two days, then a four-session ML on-ramp taught on that same model (baselines, confusion matrix, one neuron, softmax); NumPy taught as needed | Pets, XOR | CS 128 or 377 | 19_0 drafted (2026-10-25); 19_1 to write (377 notebooks are optional reference only) |
+| `19_onramp` | `19_0_Whole_Game`, `19_1_ML_Foundations` | Fine-tune a pretrained image model in the first two days, then a four-session ML on-ramp taught on that same model (baselines, confusion matrix, one neuron, softmax); NumPy taught as needed | Pets, XOR | CS 128 or 377 | 19_0 and 19_1 drafted (2026-10-25) (377 notebooks are optional reference only) |
 | `20_how_networks_learn` | `20_0_PyTorch_Basics`, `20_1_Network_Anatomy` | Tensors, the nudge test, autograd, gradient descent; one neuron → hidden layer → XOR | Penguins, XOR | 19_1 | Exists; rewrite math (nudge test first, calculus optional) |
 | `21_training` | `21_0_Training_Loop`, `21_1_Practical_Training` | The full training loop, overfitting curves, multiclass, regularization, schedules | Breast cancer (21_0_1); Fashion-MNIST (21_0_2, 21_1) | 20 | Exists; 21_0_2 and all of 21_1 move from CTG/wine to Fashion-MNIST |
 | `22_images` | `22_0_Convolution_and_CNNs`, `22_1_Transfer_Learning`, `22_2_Autoencoders_and_Diffusion` | Convolution by hand, CNNs (MLP → CNN on the same Fashion-MNIST), augmentation, transfer learning, bias; autoencoder denoising, diffusion as "denoising, repeated" | Fashion-MNIST, Pets | 21 | To write |
