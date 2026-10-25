@@ -1,19 +1,12 @@
 # 21_0 Training Loop — TODO
 
-**Status:** exists (was 19_1_2, 19_1_3, 19_1_9); 21_0_2 moves to Fashion-MNIST. **Days:** part of unit 21 (4 teaching days, shared with 21_1). **Assumes:** 20.
+**Status:** rewritten 2026-10-25 as one notebook (no saved outputs). **Days:** 1 of unit 21's 3. **Assumes:** 20.
 
-Purpose: DataLoader, the complete train/validate loop, overfitting curves, Adam vs. SGD, multiclass with CrossEntropyLoss.
-
-Datasets (decided 2026-10-24): breast cancer for 21_0_1, **Fashion-MNIST for 21_0_2** (replaces CTG). CTG and wine are no longer used in the course.
+Decided 2026-10-25: unit 21 is 3 notebooks in 3 days. 21_0_1 builds the loop on Fashion-MNIST and absorbs the old multiclass notebook (21_0_2). Breast cancer is no longer used in the course. The old exercise (21_0_9, wine) is cut.
 
 ## Notebooks
-- [ ] `21_0_1_Training_Loop.ipynb` (breast cancer, keep): 377 references (`18_1`, `18_5`, `18_6`) need recaps for non-377 students. The XGBoost/ensemble comparison (18_6) still works if the baseline result is shown in the notebook.
-- [ ] `21_0_2_Multiclass_Classification.ipynb`: **rewrite on Fashion-MNIST** (10 classes, flattened 28×28 → MLP). Introduce the dataset here, since 21_1 and 22 reuse it. Point softmax at 19_1_4 instead of 377 18_5_x. Cross-entropy as "surprise" (−ln 0.9 = 0.11, −ln 0.5 = 0.69, −ln 0.1 = 2.30). The CTG imbalance/class-weight material goes; Fashion-MNIST is balanced.
-- [ ] `21_0_9_Exercise.ipynb`: currently wine quality, with reflection Q1 comparing against "the XGBoost result from exercise 18_5_9". **Rewrite** on breast cancer (training-loop practice, XGBoost baseline included in the notebook) or on a Fashion-MNIST subset.
-- [ ] `21_0_outline.md`, `21_0_glossary.md`, `21_0_practice_quiz.ipynb`: these are the old 19_1 files. Move the anatomy (20_1_1) parts out to 20_1, update for Fashion-MNIST, and fix the "19_1" headings by hand.
+- [x] `21_0_1_Training_Loop.ipynb`: Fashion-MNIST introduced (`data/fashion10k.npz`); flattening and scaling (and what flattening loses); `TensorDataset` + `DataLoader` (157 batches of 64); MLP 784-128-10 outputs logits; `nn.CrossEntropyLoss` checked by hand against 19_1_4 and the -log(1/10) starting-loss check; `train_one_epoch` / `evaluate` / `fit` line by line, with `model.train()` / `model.eval()`; Adam (val 0.857) vs. SGD lr 0.01 (0.768) and 0.1 (0.834); test accuracy 0.850 and confusion matrix (Shirt hardest, 0.57).
+- [ ] `21_0_outline.md`, `21_0_glossary.md`, `21_0_practice_quiz.ipynb`: stale (old 19_1 content, includes anatomy sections that belong in 20_1). Later pass.
 
-## Weight decay
-- [ ] Where Adam + `weight_decay` first appears, connect it to Ridge for 377 graduates, and explain it in one line for everyone else
-
-## Runtime
-- [ ] Fashion-MNIST is 60,000 images. Use a subset (for example 10,000 training images) and few epochs for anything run in class.
+## Activities
+- [ ] One pair activity (in `canvas/private/387_*`)

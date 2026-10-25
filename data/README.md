@@ -31,6 +31,14 @@ To rebuild `pets4.zip`, download and extract `images.tar.gz` from
 flipper length and body mass). From the palmerpenguins package by Allison Horst, Alison Hill
 and Kristen Gorman, released under CC0.
 
+## Fashion-MNIST (unit 21, 22_0)
+
+`fashion10k.npz` (made by `make_fashion.py`): `x_train`/`y_train` (10,000 images, 1,000 per
+class), `x_val`/`y_val` (5,000, 500 per class, disjoint from train; both drawn from the
+official training set) and `x_test`/`y_test` (the official 10,000 test images), as
+28 × 28 uint8 arrays, plus `classes` (the 10 names). From H. Xiao, K. Rasul and
+R. Vollgraf, "Fashion-MNIST" (Zalando Research, 2017), MIT License.
+
 ## Pets source and license
 
 **Source and license.** O. M. Parkhi, A. Vedaldi, A. Zisserman and C. V. Jawahar,

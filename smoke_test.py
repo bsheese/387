@@ -61,17 +61,7 @@ KEEP_OUTPUTS = {
 
 # Moved from the old 387 with outputs and not yet reviewed (TODO.md, "Review outputs,
 # notebook by notebook"). Each one either moves to KEEP_OUTPUTS or gets cleared.
-NOT_YET_REVIEWED = {
-    "21_training/21_0_Training_Loop/21_0_1_Training_Loop.ipynb",
-    "21_training/21_0_Training_Loop/21_0_2_Multiclass_Classification.ipynb",
-    "21_training/21_0_Training_Loop/21_0_9_Exercise.ipynb",
-    "21_training/21_1_Practical_Training/21_1_1_Dropout.ipynb",
-    "21_training/21_1_Practical_Training/21_1_2_BatchNorm.ipynb",
-    "21_training/21_1_Practical_Training/21_1_3_LR_Schedules.ipynb",
-    "21_training/21_1_Practical_Training/21_1_4_Saving_and_Checkpointing.ipynb",
-    "21_training/21_1_Practical_Training/21_1_5_Full_Pipeline.ipynb",
-    "21_training/21_1_Practical_Training/21_1_9_Exercise.ipynb",
-}
+NOT_YET_REVIEWED = set()   # all reviewed as of 2026-10-25
 
 
 def venv_warning():

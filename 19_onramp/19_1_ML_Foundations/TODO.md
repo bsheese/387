@@ -25,7 +25,7 @@ NumPy/pandas: no separate primer (it would have been pre-work). Teach the few Nu
 - 19_0's history only runs 8 epochs, where validation accuracy levels off but doesn't drop, so 19_1_1's overfitting demo trains a last layer on the cached features instead (full batch, Adam lr 0.003, 300 epochs). Overfitting on frozen features is mild: validation accuracy stays near 0.9, so the loss plot carries the point.
 - 19_1_1 extension: what happens with fewer training photos (the 19_0 `IMAGES_PER_BREED` setting).
 - 19_1_4's XOR points must match 20_1_1's XOR data exactly.
-- Datasets: Pets (from 19_0) and the XOR toy. Penguins and breast cancer are no longer used in the on-ramp; they first appear in 20_0_3 and 21_0_1.
+- Datasets: Pets (from 19_0) and the XOR toy. Penguins appears in 20_0_3; Fashion-MNIST in 21_0_1. Breast cancer is no longer used in the course.
 
 ## As built (2026-10-25)
 - **19_1_1**: NumPy arrays, masks and accuracy; three baselines (most common 0.25, random about 0.25, species-then-guess about 0.5); the memorizer; train/val/test accuracy; 300 epochs on cached features (val loss lowest at epoch 32); the selection demo (30 versions, winner +0.041 over average on validation, +0.006 on test).
