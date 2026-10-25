@@ -1,0 +1,23 @@
+# cs387: direct dependencies, pinned to the versions the committed notebook
+# outputs were produced with. Rebuild the environment with:
+#   python3 -m venv venv && source venv/bin/activate && pip install -r requirements.txt
+# Students run the notebooks in Colab, whose versions differ. Before the
+# semester, re-pin these to Colab's versions (see TODO.md).
+
+numpy==2.5.4
+pandas==3.1.0
+scikit-learn==1.9.1
+
+torch==2.14.1
+torchvision==0.29.1
+pillow==13.0.0
+
+matplotlib==3.11.2
+seaborn==0.13.2
+
+jupyterlab==4.6.4
+notebook==7.6.3
+nbconvert==7.17.2
+nbformat==5.11.1
+ipykernel==7.4.0
+ipywidgets==8.1.9

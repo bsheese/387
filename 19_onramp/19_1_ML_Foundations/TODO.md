@@ -19,6 +19,10 @@ NumPy/pandas: no separate primer (it would have been pre-work). Teach the few Nu
 - [ ] Every cell runs on the saved predictions or cached features from 19_0, so nothing is retrained in class. The only exception is the overfitting demo, which can use the saved curves.
 
 ## Notes
+- **19_0 outputs are ready** in `data/` (see `data/README.md`): `pets4_predictions.csv` (800 rows with split, breed, prediction, 4 scores, 4 probabilities), `pets4_features.npz` (800 × 512), `pets4_history.csv` (8 epochs) and `pets4_head.pt`. Breeds: Birman, Ragdoll, basset_hound, beagle. Test accuracy 0.90 (Ragdoll 38/50, Birman 46, basset 46, beagle 50).
+- The classes are balanced (100 / 50 / 50 per breed), so the "always predict the most common breed" baseline in 19_1_1 is 0.25 on every split. To make the baseline more interesting, use the accuracy-paradox subset (one breed made rare) or a cat-vs-dog framing.
+- 19_0's history only runs 8 epochs, where validation accuracy levels off but doesn't drop. For the overfitting demo in 19_1_1, train the last layer on the cached features for 40 epochs. It takes under a second, and validation loss starts rising after about 15 epochs while training accuracy reaches 1.0 (checked during the 19_0 build). Accuracy alone shows only a small gap, so plot the loss too.
+- 19_1_1 extension: what happens with fewer training photos (the 19_0 `IMAGES_PER_BREED` setting).
 - 19_1_4's XOR points must match 20_1_1's XOR data exactly.
 - Datasets: Pets (from 19_0) and the XOR toy. Penguins and breast cancer are no longer used in the on-ramp; they first appear in 20_0_3 and 21_0_1.
 

@@ -44,7 +44,7 @@ Suggested order: schedule (1, 3) → on-ramp (2) → the rest.
 - [ ] Matrix and tensor shapes as an explicit lesson (exams test it)
 - [x] ~~Loading your own images for project track 1~~: no project. (`ImageFolder` may still be worth a cell in 22_1 if Pets is loaded from folders.)
 - [ ] Debugging: shape and device errors, NaN loss, seeds, reading a stack trace
-- [ ] Day-one Colab setup, with a CPU or saved-output fallback for the whole game (now in 19_0_1)
+- [x] Day-one Colab setup, with a CPU or saved-output fallback for the whole game (in 19_0_1, drafted 2026-10-25; still to be timed in Colab)
 - [ ] Ethics: tie each unit's ethics item to a pair activity so it gets class time
 
 6. Small fixes
@@ -53,12 +53,13 @@ Suggested order: schedule (1, 3) → on-ramp (2) → the rest.
 - [ ] `PROPOSAL.md`: correct "about half the notebooks already exist" (about 13 exist, about 22 are new or trimmed) and the old unit numbers in the summary, or leave the snapshot as is
 
 ## Repo infrastructure (port from public/377)
-- [ ] `requirements.txt` (torch, torchvision, transformers, datasets, scikit-learn, pandas, seaborn, matplotlib) pinned to the Colab versions of Jan 2027
-- [ ] `smoke_test.py`: run every notebook in a temp dir (the 377 version). **Saved outputs are decided notebook by notebook**, so replace 377's "no outputs" check with an allowlist of notebooks that keep theirs.
-- [ ] **Review outputs, notebook by notebook.** All 13 existing notebooks (20_*, 21_*) have saved outputs. Decide which keep them (long runs, results students should see first) and clear the rest.
-- [ ] **Time every cell used in a pair activity** on free Colab (CPU and the free GPU). A cell that runs for anything like 30 minutes can't be in class: cut the data, the epochs or the model, or show a saved output. The smoke test could report the slowest cells.
-- [ ] `venv/` locally (gitignored already)
-- [ ] `data/` vendored datasets + raw-GitHub loading pattern (377 Maintenance Notes)
+- [x] `requirements.txt` (2026-10-25): pinned to the local venv used for the 19_0 outputs
+- [ ] Re-pin `requirements.txt` to the Colab versions of Jan 2027, and add transformers + datasets when unit 23 needs them
+- [x] `smoke_test.py` (2026-10-25): the 377 version plus a `KEEP_OUTPUTS` allowlist, `--check-only`, copying `data/` into each run (or `--remote-data`), and a report of cells slower than `--slow` seconds. The 13 old notebooks are in a temporary `NOT_YET_REVIEWED` list.
+- [ ] **Review outputs, notebook by notebook.** All 13 existing notebooks (20_*, 21_*) have saved outputs. Decide which keep them (long runs, results students should see first) and clear the rest. Then move each one from `NOT_YET_REVIEWED` in `smoke_test.py` to `KEEP_OUTPUTS`, or delete it from the list.
+- [ ] **Time every cell used in a pair activity** on free Colab (CPU and the free GPU). A cell that runs for anything like 30 minutes can't be in class: cut the data, the epochs or the model, or show a saved output. `python smoke_test.py --slow 30` reports slow cells (local times, so Colab will be slower).
+- [x] `venv/` locally (gitignored already; created 2026-10-25 from `requirements.txt`)
+- [x] `data/` + raw-GitHub loading (2026-10-25): notebooks use a `fetch()` helper that downloads from `bsheese/387/main/data/` unless the file is already present. `data/README.md` lists the files and how they were made. Penguins, breast cancer, Fashion-MNIST and IMDB still to add when their units are rebuilt.
 - [ ] Quiz site: `quizzes/*.md` + `quiz_site/build.py` + GitHub Pages workflow (`_site/` already gitignored)
 - [ ] `README.md` for students (course description, how to open notebooks in Colab)
 - [ ] `supplemental/` for pair-activity notebooks (377 convention); pair-activity sources go in `canvas/private/387_*` (instructor-only)
