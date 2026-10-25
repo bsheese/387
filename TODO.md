@@ -39,9 +39,9 @@ Suggested order: schedule (1, 3) → on-ramp (2) → the rest.
 - [x] ~~AI coding-assistant policy~~: not needed; there's no take-home work and exams are under lockdown (decided 2026-10-24).
 
 5. Content gaps (find each a home)
-- [ ] Logs and exponentials (before cross-entropy and softmax)
-- [ ] Vectors and the dot product (before embeddings and attention)
-- [ ] Matrix and tensor shapes as an explicit lesson (exams test it)
+- [x] Logs and exponentials (before cross-entropy and softmax): $e^x$ in 19_1_3 (sigmoid) and 19_1_4 (softmax); the natural log in 19_1_4 (cross-entropy loss)
+- [x] Vectors and the dot product (before embeddings and attention): 19_1_3 Section 1
+- [x] Matrix and tensor shapes as an explicit lesson (exams test it): 19_1_3 Section 4 (the shape rule, transpose, broadcasting, the shape error); revisit for tensors in 20_0_1
 - [x] ~~Loading your own images for project track 1~~: no project. (`ImageFolder` may still be worth a cell in 22_1 if Pets is loaded from folders.)
 - [ ] Debugging: shape and device errors, NaN loss, seeds, reading a stack trace
 - [x] Day-one Colab setup, with a CPU or saved-output fallback for the whole game (in 19_0_1, drafted 2026-10-25; still to be timed in Colab)
