@@ -48,8 +48,8 @@ Suggested order: schedule (1, 3) → on-ramp (2) → the rest.
 - [ ] Ethics: tie each unit's ethics item to a pair activity so it gets class time
 
 6. Small fixes
-- [ ] Nudge test: use a central difference `(f(x+h) - f(x-h)) / 2h` (20_0_2)
-- [ ] Motivate backprop with cost: nudging every weight means about 11M forward passes for ResNet-18 (20_0_2 or 20_1)
+- [x] Nudge test: use a central difference `(f(x+h) - f(x-h)) / 2h` (20_0_2)
+- [x] Motivate backprop with cost: nudging every weight means about 11M forward passes for ResNet-18 (20_0_2 Section 4, with a timing demo)
 - [ ] `PROPOSAL.md`: correct "about half the notebooks already exist" (about 13 exist, about 22 are new or trimmed) and the old unit numbers in the summary, or leave the snapshot as is
 
 ## Repo infrastructure (port from public/377)
@@ -68,7 +68,7 @@ Suggested order: schedule (1, 3) → on-ramp (2) → the rest.
 ## Cross-cutting content
 - [ ] **377 references.** The moved notebooks cite 377 notebooks that non-377 students have not seen (17_0_5, 18_1, 18_2_3, 18_5_x, 18_6). Point each one at its 19_1 on-ramp equivalent, or add a one-line recap. Per-file lists are in the 20_* and 21_* TODOs.
 - [ ] **Sub-unit references.** The bare IDs `19_0`, `19_1` and `20_1` in outlines, glossaries and quizzes were not renumbered automatically, because the old 19_1 is now split across 20_1 and 21_0. Fix them by hand (`grep -rnE '\b(19_0|19_1|20_1)\b'`).
-- [ ] "If you've taken calculus" collapsible-box convention: pick one HTML/markdown pattern and use it everywhere
+- [x] "If you've taken calculus" collapsible-box convention: `<details><summary><b>If you've taken calculus</b></summary> ... </details>` (first used in 20_0_2)
 - [ ] Glossary per module (377 convention); one course-wide glossary?
 - [ ] Canvas: create `canvas/courses/387/terms/s27/` (doctor.py → dates.yaml, modules), one module per unit, 5 exams (units 19–22 in class; unit 23 in the final exam period), weekly pair-activity New Quizzes
 - [ ] Syllabus: prereqs (377, or CS 128 C- + CS/MATH 136), weights (exams 80 = 5 × 16%, pairs 20, practice quizzes 0), free materials list

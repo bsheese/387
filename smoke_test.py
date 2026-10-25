@@ -62,10 +62,6 @@ KEEP_OUTPUTS = {
 # Moved from the old 387 with outputs and not yet reviewed (TODO.md, "Review outputs,
 # notebook by notebook"). Each one either moves to KEEP_OUTPUTS or gets cleared.
 NOT_YET_REVIEWED = {
-    "20_how_networks_learn/20_0_PyTorch_Basics/20_0_1_Tensors.ipynb",
-    "20_how_networks_learn/20_0_PyTorch_Basics/20_0_2_Autograd.ipynb",
-    "20_how_networks_learn/20_0_PyTorch_Basics/20_0_3_Gradient_Descent.ipynb",
-    "20_how_networks_learn/20_1_Network_Anatomy/20_1_1_Anatomy_of_a_Network.ipynb",
     "21_training/21_0_Training_Loop/21_0_1_Training_Loop.ipynb",
     "21_training/21_0_Training_Loop/21_0_2_Multiclass_Classification.ipynb",
     "21_training/21_0_Training_Loop/21_0_9_Exercise.ipynb",
