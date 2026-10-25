@@ -50,7 +50,8 @@ ROOT = pathlib.Path(__file__).resolve().parent
 VENV_DIR = ROOT / "venv"
 DATA_DIR = ROOT / "data"
 
-EXCLUDE_DIR_PARTS = {"venv", ".ipynb_checkpoints", "old", "old_material", "_site", ".ignore"}
+# tools/ holds colab_check.ipynb, which runs this script itself.
+EXCLUDE_DIR_PARTS = {"venv", ".ipynb_checkpoints", "old", "old_material", "_site", ".ignore", "tools"}
 
 # Notebooks that are committed with their outputs (paths relative to the repo root).
 KEEP_OUTPUTS = {
