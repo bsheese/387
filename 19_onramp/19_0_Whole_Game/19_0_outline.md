@@ -85,7 +85,7 @@ from `data/pets4.zip`
 
 ### Looking at the mistakes
 - Every misclassified test photo with its true breed, prediction and confidence
-- Discussion: would a person get these right? Small, hidden or unusual-pose animals
+- Some mistakes are understandable: Ragdolls with white paws (a Birman trait), small or crowded photos
 
 ### Confidence
 - **Confidence**: the probability of the predicted breed (never below 0.25 with four breeds)
@@ -107,7 +107,7 @@ from `data/pets4.zip`
   where each step comes up in the course
 - What changed around 2012: data, GPUs and shared pretrained models
 
-### Where the photos came from (ethics discussion)
+### Where the photos came from, and who is missing
 - The Pets photos: purebreds only, photos people chose to post online
 - ImageNet: web photos labeled by crowd workers; the 2019 removal of many person categories
 - How the choice of test examples shapes a reported accuracy

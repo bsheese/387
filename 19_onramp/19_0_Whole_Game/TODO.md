@@ -12,7 +12,7 @@ What 19_0 leaves behind for 19_1 (all in `data/`, see `data/README.md`):
 
 ## Notebooks
 - [x] `19_0_1_Your_First_Image_Model.ipynb` (day 1): Colab setup, the photos, the pretrained ResNet-18's own ImageNet guesses, freeze + replace the last layer, train 8 epochs, test accuracy, `predict()`, upload your own photo, save.
-- [x] `19_0_2_What_Just_Happened.ipynb` (day 2): rebuild from the course copy, the 512 features, test results table and crosstab, the mistakes, confidence, other breeds, save outputs for 19_1, history timeline, ethics discussion.
+- [x] `19_0_2_What_Just_Happened.ipynb` (day 2): rebuild from the course copy, the 512 features, test results table and crosstab, the mistakes, confidence, other breeds, save outputs for 19_1, history timeline, where the photos came from (ethics).
 - [x] `19_0_outline.md`, `19_0_glossary.md`, `19_0_practice_quiz.ipynb`
 
 ## Decided
@@ -34,7 +34,9 @@ What 19_0 leaves behind for 19_1 (all in `data/`, see `data/README.md`):
 
 ## Activities
 - [ ] Pair activity (day 1 or 2): change `IMAGES_PER_BREED` (for example 5, 20, 100), retrain, and compare accuracy and the mistakes. Changing the breeds would need more breeds in `pets4.zip`.
-- [ ] Ethics prompt: 19_0_2 Section 9 has the discussion questions; tie them to the pair activity so they get class time.
+- [ ] Ethics prompt: 19_0_2 Section 9 explains the issues (purebreds only, web photos, ImageNet labels, how test examples are chosen); the discussion questions go in the pair activity.
+
+Notebooks stand on their own: no "discuss with your partner" prompts in them (decided 2026-10-25). Discussion questions live in the pair activities.
 
 ## Exam
 - [ ] Unit 19 exam covers 19_0 + 19_1, asked about this model (see the 19_1 TODO)
