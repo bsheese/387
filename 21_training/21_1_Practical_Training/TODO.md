@@ -1,24 +1,19 @@
 # 21_1 Practical Training — TODO
 
-**Status:** exists (was 20_1); **moving from wine quality to Fashion-MNIST** (decided 2026-10-24). **Days:** part of unit 21 (4 teaching days, shared with 21_0). **Assumes:** 21_0 (including 21_0_2, where Fashion-MNIST is introduced).
+**Status:** rewritten 2026-10-25 as two notebooks (no saved outputs). **Days:** 2 of unit 21's 3. **Assumes:** 21_0_1.
 
-Purpose: dropout, batch norm, LR schedules, saving/checkpointing and a full pipeline, all on a Fashion-MNIST MLP. Overfitting is easy to see on this data, and 22_0 then swaps the same MLP for a CNN on the same data.
+Decided 2026-10-25: the five old notebooks (dropout, batch norm, LR schedules, checkpointing, full pipeline) and the exercise (21_1_9, wine) became two. Batch norm moved to 22_0; 21_1_1 only explains its train/eval behavior (and why 19_0 kept ResNet-18 in eval mode).
 
-## Notebooks (each one moves to Fashion-MNIST)
-- [ ] `21_1_1_Dropout.ipynb`: an oversized MLP that overfits a Fashion-MNIST subset, then dropout; remove the `18_6` reference or add a recap
-- [ ] `21_1_2_BatchNorm.ipynb`: or move to 22_0 (see the top-level TODO)
-- [ ] `21_1_3_LR_Schedules.ipynb`: connect to the 20_0_3 learning-rate experiment; or fold into 21_1_5
-- [ ] `21_1_4_Saving_and_Checkpointing.ipynb`: or make it a reading
-- [ ] `21_1_5_Full_Pipeline.ipynb`: end with the MLP that 22_0_2 beats with a CNN; save its test accuracy so 22_0_2 can quote it
-- [ ] `21_1_9_Exercise.ipynb`: rewrite off wine onto Fashion-MNIST. Q3 compared against XGBoost on wine, so replace it with a question that fits image data (for example, what an MLP on flattened pixels can't see, as a setup for 22_0).
-- [ ] `21_1_outline.md`, `21_1_glossary.md`, `21_1_practice_quiz.ipynb`: update for Fashion-MNIST; fix the bare "20_1" / "19_0" / "19_1" references by hand
-
-## Decide
-- [ ] Is batch norm needed before 22 (CNNs use it), or can it move to 22_0?
-- [ ] Unit 21 has 4 teaching days for 21_0 and 21_1 together. Choose which 21_1 notebooks become optional or are cut (no take-home work, so readings can't be assigned). Deferred.
+## Notebooks
+- [x] `21_1_1_Overfitting_and_Regularization.ipynb`: big MLP (784-512-512-10, 670k weights) on 1,000 images for 60 epochs (train 0.997, val 0.803, val loss 0.578 at epoch 9 -> 0.979); `nn.Dropout` demo in train/eval mode; dropout 0.5 (val loss 0.678, acc 0.814); train vs. eval measurement demo; batch norm's running averages and the 19_0 connection; weight decay with AdamW 1.0 (val loss 0.732) and the Ridge connection; more data (10,000 images: best val acc 0.870); early stopping previewed.
+- [x] `21_1_2_Training_a_Model_Well.ipynb`: `fit` with checkpointing and patience (stops at epoch 19, restores epoch 14); `torch.save` / `load_state_dict(torch.load(..., weights_only=True))`; the architecture-mismatch error; cosine annealing (plot of the rate; constant vs. cosine final val loss 0.408 vs. 0.384); the full recipe (dropout 0.3, AdamW 0.05, cosine, early stopping): **test accuracy 0.869, the MLP number 22_0 compares against**; a 7-step training checklist.
+- [ ] `21_1_outline.md`, `21_1_glossary.md`, `21_1_practice_quiz.ipynb`: stale (old wine-based 20_1 content). Later pass.
 
 ## Runtime
-- [ ] Each notebook's training run must fit in class (Fashion-MNIST subset, few epochs), or keep its output saved
+- [x] Every training run fits in class: locally 8 s (21_0_1), 18 s (21_1_1) and 34 s (21_1_2) for whole notebooks on CPU. Still to time in Colab.
+
+## Activities
+- [ ] Pair activities for 21_1_1 and 21_1_2 (in `canvas/private/387_*`). Candidates from the cut exercises: dropout rate sweep, patience choice, reading curves to diagnose over/underfitting.
 
 ## Exam
 - [ ] Unit 21 exam: read train/val curves, diagnose overfitting, choose a fix

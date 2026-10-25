@@ -16,11 +16,13 @@ Note: `TODO.md` files are tracked in git (removed from `.gitignore` on 2026-10-2
 Suggested order: schedule (1, 3) → on-ramp (2) → the rest.
 
 1. Schedule and scope
-- [ ] **Fit content to 26 teaching days** (about 35 notebooks planned; about 1 notebook per class is realistic). Choose which notebooks become readings and which topics get cut. **Deferred for unit 21 ("later").** With no take-home work, "becomes a reading" means optional material or class time, not homework. Candidates:
-  - [ ] Batch norm (21_1_2) moves to 22_0
-  - [ ] Checkpointing (21_1_4) becomes a reading
-  - [ ] Multiclass (21_0_2) becomes a short reading (softmax is already in 19_1_4)
-  - [ ] LR schedules (21_1_3) folded into 21_1_5
+- [ ] **Fit content to 26 teaching days** (about 35 notebooks planned; about 1 notebook per class is realistic). Choose which notebooks become readings and which topics get cut. **Unit 21 decided 2026-10-25: 3 notebooks in 3 days (see below); the freed day went to unit 23.** With no take-home work, "becomes a reading" means optional material or class time, not homework. Candidates:
+  - [x] Batch norm moves to 22_0 (21_1_1 explains only its train/eval behavior)
+  - [x] Checkpointing: folded into 21_1_2 (early stopping with a checkpoint)
+  - [x] Multiclass: folded into 21_0_1 (Fashion-MNIST is 10-class from the start)
+  - [x] LR schedules: one cosine section in 21_1_2
+  - [x] Exercises 21_0_9 and 21_1_9 cut (no take-home work; their job goes to pair activities)
+  - [x] Breast cancer dropped from the course (5 datasets + XOR)
 - [x] 19_0 gets 2 days (decided 2026-10-24)
 - [ ] Test DistilBERT fine-tuning and the diffusion demo on free Colab in December, before writing units 22–23
 
@@ -30,7 +32,7 @@ Suggested order: schedule (1, 3) → on-ramp (2) → the rest.
 
 3. Dataset for units 21–22
 - [x] **Move to Fashion-MNIST** (decided 2026-10-24): 21_0_2 (multiclass) and all of 21_1 (regularization, MLP), so 22_0 swaps in a CNN on the same data. Tasks are in the 21_0 and 21_1 TODOs.
-- [x] **Cut to 6 datasets** (decided 2026-10-24): Pets, penguins, breast cancer, Fashion-MNIST, IMDB, plus the XOR toy. Dropped: Titanic, CTG, wine, CIFAR-10, student photos, the student-chosen text set. The table is in `COURSE_MAP.md`.
+- [x] **Cut to 6 datasets** (decided 2026-10-24), then 5 (breast cancer dropped 2026-10-25): Pets, penguins, Fashion-MNIST, IMDB, plus the XOR toy. Dropped: Titanic, CTG, wine, CIFAR-10, student photos, the student-chosen text set. The table is in `COURSE_MAP.md`.
 
 4. Assessment
 - [x] ~~Project weight~~: the project is cut (decided 2026-10-24). See "Grade weights without the project" above.
