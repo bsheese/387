@@ -57,6 +57,10 @@ KEEP_OUTPUTS = {
     # 19_0: the saved outputs are the CPU fallback for day one, and 19_1 refers to the same numbers.
     "19_onramp/19_0_Whole_Game/19_0_1_Your_First_Image_Model.ipynb",
     "19_onramp/19_0_Whole_Game/19_0_2_What_Just_Happened.ipynb",
+    # 22: several minutes of training each on a CPU; students read the results before running.
+    "22_images/22_0_Convolution_and_CNNs/22_0_2_First_CNN.ipynb",
+    "22_images/22_1_Transfer_Learning/22_1_1_Transfer_Learning.ipynb",
+    "22_images/22_1_Transfer_Learning/22_1_2_What_CNNs_Get_Wrong.ipynb",
 }
 
 # Moved from the old 387 with outputs and not yet reviewed (TODO.md, "Review outputs,
