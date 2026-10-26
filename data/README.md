@@ -39,6 +39,15 @@ official training set) and `x_test`/`y_test` (the official 10,000 test images), 
 28 × 28 uint8 arrays, plus `classes` (the 10 names). From H. Xiao, K. Rasul and
 R. Vollgraf, "Fashion-MNIST" (Zalando Research, 2017), MIT License.
 
+## IMDB movie reviews (unit 23)
+
+`imdb_reviews.csv` (made by `make_imdb.py`): columns `split`, `label` (1 positive, 0 negative)
+and `text`. 2,000 train and 1,000 val reviews (disjoint, from the official training set) and
+2,000 test reviews (from the official test set), each half positive, with the raw `<br />`
+line breaks replaced by spaces. From the Large Movie Review Dataset, A. L. Maas et al.,
+"Learning Word Vectors for Sentiment Analysis", ACL 2011, released by the authors for
+research use.
+
 ## Pets source and license
 
 **Source and license.** O. M. Parkhi, A. Vedaldi, A. Zisserman and C. V. Jawahar,
