@@ -26,6 +26,8 @@ Suggested order: schedule (1, 3) → on-ramp (2) → the rest.
 - [x] 19_0 gets 2 days (decided 2026-10-24)
 - [ ] Test DistilBERT fine-tuning and the diffusion demo on free Colab in December, before writing units 22–23
   - `tools/colab_check.ipynb` (built by `tools/make_colab_check.py`, 2026-10-25) does this: Colab versions, every course notebook through `smoke_test.py --remote-data`, DDPM CIFAR-10 / BK-SDM-Small / SD 1.5, DistilBERT on 2,000 IMDB reviews, the SST-2 pipeline, GPT-2. Run once on a T4 GPU and once on CPU; paste back the last cell. Repeat on the GPU in January 2027.
+  - [x] **T4 GPU run (2026-10-27):** all 20 course notebooks passed (603 s total; slowest cells 31–38 s: the 20_0_2 timing demo, the 22_1_1 Pets transforms, the 23_0_2 sentence-transformer download). DDPM CIFAR-10: 50 DDIM steps 2.1 s, 1,000 DDPM steps 29.8 s (4 images). BK-SDM-Small: load 53 s, 3.1 s per image, 2.7 GB. SD 1.5: load 128 s, 4.6 s per image, 3.4 GB. DistilBERT, 2,000 IMDB reviews, one epoch: 41 s, 86.3% on 1,000 test reviews. SST-2 pipeline with no training: 87.6% on 500 reviews in 14 s. GPT-2: 5 samples of 50 tokens in 0.7 s. Colab versions: Python 3.13, torch 2.11, numpy 2.1, pandas 2.2, scikit-learn 1.6, transformers 5.20, diffusers 0.42.
+  - [ ] CPU run (Runtime → Change runtime type → CPU), to size things for a pair that doesn't get a GPU
 
 2. On-ramp design
 - [x] **Teach the on-ramp through the week-1 image model** (decided 2026-10-24). The 377 notebooks are optional reference only. See the 19_1 TODO.
@@ -57,7 +59,7 @@ Suggested order: schedule (1, 3) → on-ramp (2) → the rest.
 
 ## Repo infrastructure (port from public/377)
 - [x] `requirements.txt` (2026-10-25): pinned to the local venv used for the 19_0 outputs
-- [ ] Re-pin `requirements.txt` to the Colab versions of Jan 2027, and add transformers + datasets when unit 23 needs them
+- [ ] Re-pin `requirements.txt` to the Colab versions of Jan 2027 (in Oct 2026 the local venv was well ahead of Colab: pandas 3.1 vs 2.2, numpy 2.5 vs 2.1, torch 2.14 vs 2.11, scikit-learn 1.9 vs 1.6; the notebooks still pass on Colab, but saved outputs made with pandas 3 may print differently), and add transformers + datasets when unit 23 needs them
 - [x] `smoke_test.py` (2026-10-25): the 377 version plus a `KEEP_OUTPUTS` allowlist, `--check-only`, copying `data/` into each run (or `--remote-data`), and a report of cells slower than `--slow` seconds. The 13 old notebooks are in a temporary `NOT_YET_REVIEWED` list.
 - [ ] **Review outputs, notebook by notebook.** All 13 existing notebooks (20_*, 21_*) have saved outputs. Decide which keep them (long runs, results students should see first) and clear the rest. Then move each one from `NOT_YET_REVIEWED` in `smoke_test.py` to `KEEP_OUTPUTS`, or delete it from the list.
 - [ ] **Time every cell used in a pair activity** on free Colab (CPU and the free GPU). A cell that runs for anything like 30 minutes can't be in class: cut the data, the epochs or the model, or show a saved output. `python smoke_test.py --slow 30` reports slow cells (local times, so Colab will be slower).

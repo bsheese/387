@@ -27,7 +27,7 @@ Not course material. This notebook times the course on Colab and tests the model
 **Run it twice:**
 
 1. **GPU:** Runtime → Change runtime type → **T4 GPU** → Save. Then Runtime → **Run all**. About 20–30 minutes.
-2. **CPU:** Runtime → Change runtime type → **CPU** → Save. Then Runtime → **Run all** again. Up to about an hour; it can run unattended. Parts that need a GPU are skipped automatically.
+2. **CPU:** Runtime → Change runtime type → **CPU** → Save. Then Runtime → **Run all** again. Part 2 (every course notebook) can take a few hours on the CPU; it prints each notebook's time as it finishes and can run unattended. To get the model timings without it, set `RUN_COURSE_NOTEBOOKS = False` in the first code cell before Run all. Parts that need a GPU are skipped automatically.
 
 After each run, copy everything printed by the **last cell** and paste it back to Claude.
 
@@ -38,6 +38,7 @@ import importlib.metadata, json, os, platform, subprocess, sys, time, traceback
 os.environ['HF_HUB_DISABLE_XET'] = '1'      # the classic download path; the newer one hung in testing
 import torch
 
+RUN_COURSE_NOTEBOOKS = True    # False skips Part 2 (every course notebook), the slow part on the CPU
 RESULTS = {}
 GPU = torch.cuda.is_available()
 device = 'cuda' if GPU else 'cpu'
@@ -91,11 +92,9 @@ print(json.dumps(RESULTS['environment'], indent=1))
 Clones the course repo and runs `smoke_test.py`, which executes each notebook in a fresh folder the way a student would, downloading data from GitHub. The 19_0_1 cell that asks for a photo upload is replaced first, because it would wait forever with nobody to click. This is the longest part, especially on the CPU.
 """),
 ("code", r"""
-RUN_COURSE_NOTEBOOKS = os.environ.get('COLAB_CHECK_SKIP_COURSE') != '1'
-
 def course_notebooks():
     if not RUN_COURSE_NOTEBOOKS:
-        record('course_notebooks', skipped='COLAB_CHECK_SKIP_COURSE=1')
+        record('course_notebooks', skipped='RUN_COURSE_NOTEBOOKS = False')
         return
     subprocess.run(['rm', '-rf', '387_check'])
     subprocess.run(['git', 'clone', '--depth', '1', '-q', 'https://github.com/bsheese/387', '387_check'], check=True)
@@ -108,14 +107,23 @@ def course_notebooks():
             cell.source = "print('photo upload skipped in the Colab check')"
     nbformat.write(nb, path)
 
-    proc = subprocess.run([sys.executable, 'smoke_test.py', '--remote-data', '--slow', '30', '--timeout', '1800'],
-                          cwd='387_check', capture_output=True, text=True)
-    lines = [l for l in proc.stdout.splitlines() if l.strip() and '#' not in l]
-    print('\n'.join(lines))
+    # Stream smoke_test's output as it runs, so each notebook's time shows up when it finishes.
+    # On the CPU each notebook gets about 15 minutes (smoke_test's hard limit is the timeout + 60 s), so one slow notebook can't hold up the rest for long.
+    timeout = '1800' if GPU else '900'
+    proc = subprocess.Popen([sys.executable, '-u', 'smoke_test.py', '--remote-data', '--slow', '30', '--timeout', timeout],
+                            cwd='387_check', stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
+    chunks = []
+    while chunk := proc.stdout.read(1):
+        sys.stdout.write(chunk)
+        sys.stdout.flush()
+        chunks.append(chunk)
+    proc.wait()
+    output = ''.join(chunks)
+    lines = [l for l in output.splitlines() if l.strip() and '#' not in l]
     record('course_notebooks', exit_code=proc.returncode,
            report=[l for l in lines if ' ... ' in l or ' s  ' in l or 'passed' in l or 'FAIL' in l][:60])
     if proc.returncode != 0:
-        record('course_notebooks', stderr_tail=proc.stdout[-1500:])
+        record('course_notebooks', stderr_tail=output[-1500:])
 
 run_part('course_notebooks', course_notebooks)
 """),
