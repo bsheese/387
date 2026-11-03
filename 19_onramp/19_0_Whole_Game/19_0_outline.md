@@ -1,7 +1,7 @@
 # 19_0 The Whole Game: Topic Outline
 
 This document outlines the topics covered in the two 19_0 notebooks. 19_0 takes
-two class days, one per notebook. Students fine-tune a pretrained image model on
+two class days, one per notebook. Students reuse a pretrained image model (feature extraction: a new last layer on a frozen network) on
 day one, before they know what a weight is, and treat it as a black box on
 purpose. 19_1 then teaches the basics of evaluating a model on this same model,
 and 22_1 explains transfer learning.
@@ -15,7 +15,7 @@ from `data/pets4.zip`
 
 ### Why start with a working model
 - The order of the course: the whole model first, then its parts (fast.ai's approach)
-- Where each piece of today's code is explained later (19_1, unit 20, unit 21, 22_1)
+- Where each piece of the notebook's code is explained later (19_1, unit 20, unit 21, 22_1)
 
 ### Setting up Colab
 - Running on Google's computers; asking for a T4 GPU through Runtime → Change runtime type
@@ -38,7 +38,7 @@ from `data/pets4.zip`
 - The pretrained model's own top-3 guesses: it has "beagle" and "basset" but no Birman or
   Ragdoll, so it names the cats "Siamese cat" and "Persian cat"
 
-### Fine-tuning the last layer
+### Training a new last layer (feature extraction)
 - The last layer turns 512 numbers into 1,000 scores; we replace it with one that gives 4
 - Freezing the pretrained weights (`requires_grad = False`); only 2,052 numbers are trained
 - `IMAGES_PER_BREED`: how many training photos per breed the model learns from
@@ -109,5 +109,5 @@ from `data/pets4.zip`
 
 ### Where the photos came from, and who is missing
 - The Pets photos: purebreds only, photos people chose to post online
-- ImageNet: web photos labeled by crowd workers; the 2019 removal of many person categories
+- ImageNet: web photos labeled by crowd workers; the 2019 removal of many person categories from the full collection (the 1,000-category version used to train ResNet-18 has almost none)
 - How the choice of test examples shapes a reported accuracy
