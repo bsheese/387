@@ -9,6 +9,7 @@ only works in Colab once the files it uses have been pushed.
 | File | Made by | Used in | What it is |
 |---|---|---|---|
 | `pets4.zip` | `make_pets4.py` | 19_0_1, 19_0_2 | Birman, Ragdoll, basset hound and beagle: 100 train, 50 val and 50 test photos per breed, shorter side shrunk to 256 px. `other/` has 10 photos of breeds outside the four (Siamese, Persian, pug, samoyed, keeshond). |
+| `pets4_splits.csv` | `group_pets4.py` | `make_pets4.py` | One row per photo (800): `file`, `breed`, `group` (photos judged to be the same animal share a group), `original_split` (the first, purely random split) and `split` (the one used). Every group is in a single split, so validation and test photos show animals the model never trained on. |
 | `pets4_head.pt` | running 19_0_1 (`my_pets4_head.pt`) | 19_0_1 (shortcut), 19_0_2 | `state_dict` of the trained last layer, `nn.Linear(512, 4)`. Put it on an ImageNet-pretrained ResNet-18 kept in `eval()` mode to rebuild the model. |
 | `pets4_history.csv` | running 19_0_1 (`my_pets4_history.csv`) | 19_1_1 | Training loss, training accuracy and validation accuracy after each of the 8 epochs. |
 | `pets4_predictions.csv` | running 19_0_2 | 19_1 | One row per photo (800): `file`, `split`, `breed`, `predicted`, `score_<breed>` (the four raw scores) and `prob_<breed>` (softmax of the scores). |
@@ -20,6 +21,15 @@ saved outputs show that run. If you change 19_0_1 or 19_0_2, re-execute
 19_0_2 with `pets4_head.pt` in its working directory and copy its two output
 files here. The committed versions were made on a CPU, where the run is
 deterministic; a GPU gives slightly different numbers.
+
+**The split was rebuilt on 2026-11-03.** The first version split each breed at random,
+and in the Oxford photos neighbouring file numbers are often the same animal (Ragdoll_159,
+160 and 161 were in train, test and validation). `group_pets4.py` links photos of the same
+breed that are close in number and similar in their ResNet-18 features, or nearly identical
+pixel for pixel, plus a short hand-checked list, and keeps each group in one split; 252 of the
+800 photos changed split. The new `pets4.zip` was made by moving the existing image files
+(same bytes), not by re-running `make_pets4.py`, because the Oxford server couldn't be reached;
+`make_pets4.py` now reads `pets4_splits.csv`, so a run from the raw images gives the same split.
 
 To rebuild `pets4.zip`, download and extract `images.tar.gz` from
 <https://www.robots.ox.ac.uk/~vgg/data/pets/> and run

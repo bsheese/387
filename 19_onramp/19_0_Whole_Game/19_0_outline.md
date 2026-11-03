@@ -36,7 +36,7 @@ from `data/pets4.zip`
 - What "pretrained" means and why most deep learning starts from a pretrained model
 - `weights.transforms()`: resize, center crop to 224 × 224, rescale colors as in training
 - The pretrained model's own top-3 guesses: it has "beagle" and "basset" but no Birman or
-  Ragdoll, so it names the cats "Siamese cat" and "Persian cat"
+  Ragdoll, so it names both cats "Siamese cat"
 
 ### Training a new last layer (feature extraction)
 - The last layer turns 512 numbers into 1,000 scores; we replace it with one that gives 4
@@ -49,7 +49,7 @@ from `data/pets4.zip`
 - The shortcut: `USE_COURSE_COPY = True` loads the course's trained last layer
 
 ### The test set and new photos
-- Test accuracy (0.90 in the saved run, 180 of 200)
+- Test accuracy (0.885 in the saved run, 177 of 200)
 - Why it works with so few photos: the pretrained network already knows what animals look like
 - `predict(path)`: the four probabilities for one photo
 - Uploading your own photo in Colab; the model always answers with one of the four breeds
@@ -78,7 +78,7 @@ from `data/pets4.zip`
 
 ### The test results
 - A pandas table with one row per test photo (no pandas knowledge needed)
-- Right answers by breed: Ragdoll is the hardest (38 of 50)
+- Right answers by breed: Ragdoll is the hardest (35 of 50)
 - A table of true breed against predicted breed (named a **confusion matrix**;
   19_1_2 covers it)
 - Mistakes stay inside the look-alike pairs; most are Ragdolls called Birmans
@@ -89,7 +89,7 @@ from `data/pets4.zip`
 
 ### Confidence
 - **Confidence**: the probability of the predicted breed (never below 0.25 with four breeds)
-- Right answers are usually more confident than wrong ones (0.88 vs. 0.68 on average),
+- Right answers are usually more confident than wrong ones (0.865 vs. 0.664 on average),
   but a few wrong answers have confidence above 0.8
 
 ### Photos outside the four breeds

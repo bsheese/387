@@ -26,24 +26,24 @@ ideas are linked from each notebook as optional reference.
   because the classes are balanced; with unbalanced data it can be very high
 - Random guessing with `np.random.default_rng(...).choice`: about 0.25
 - Tell cats from dogs, then guess the breed: about 0.5
-- The model's 0.90 against all three
+- The model's 0.885 against all three
 
 ### Measured on which photos?
 - The memorizer: 1.0 on training photos, nothing on new ones
-- The model's own accuracy on train / val / test (0.94 / 0.89 / 0.90)
+- The model's own accuracy on train / val / test (0.945 / 0.875 / 0.885)
 - **Overfitting** defined as a gap between training and new photos
 
 ### Training too long
 - Training a fresh last layer directly on the cached 512 features (fast)
 - 300 epochs: training accuracy reaches 1.0 and training loss approaches 0, while
-  validation accuracy levels off near 0.9 and validation loss rises after about epoch 32
+  validation accuracy levels off near 0.91 and validation loss rises slowly after about epoch 105
 - Stopping where validation loss is lowest
 - The **loss** introduced informally (19_1_4 defines it)
 
 ### Why a separate test set
 - Choosing on the validation photos makes the winner's validation score optimistic
-- Demo: 30 versions trained on different random 10 photos per breed; the winner is 0.041
-  above average on validation but only 0.006 above average on test
+- Demo: 30 versions trained on different random 10 photos per breed, repeated 20 times;
+  on average the winner is 0.054 above average on validation but only 0.012 above on test
 - Table: training / validation / test photos, what each is for, and the rule for each
 
 ---
@@ -56,27 +56,27 @@ ideas are linked from each notebook as optional reference.
 - Counting by hand into `np.zeros((4, 4), dtype=int)`; two-dimensional indexing
 - `confusion_matrix` and `ConfusionMatrixDisplay` from scikit-learn
 - Reading rows (true breed), columns (predicted breed) and the diagonal (right answers)
-- The Pets model: mistakes only within look-alike pairs; 12 Ragdolls called Birmans
+- The Pets model: mistakes only within look-alike pairs; 15 Ragdolls called Birmans
 - Accuracy as the diagonal sum over the total (`np.diag`)
 
 ### Precision and recall
 - The adoption-site example: "Ragdoll or not?"
 - TP, FN, FP, TN read from the matrix (`matrix[k, :]`, `matrix[:, k]`)
-- **Recall** (along the row) and **precision** (down the column): Ragdoll recall 0.76,
-  precision 0.905; Birman is the mirror image
+- **Recall** (along the row) and **precision** (down the column): Ragdoll recall 0.70,
+  precision 0.946; Birman is the mirror image
 - `classification_report`; F1 and support mentioned; one mistake lowers one breed's recall
   and another breed's precision
 
 ### The accuracy paradox
 - A shelter-like set: 150 other photos and 5 Ragdolls (`np.where`, `~`)
-- Our model and a detector that never says "Ragdoll" both score 0.968
+- Our model (0.981) and a detector that never says "Ragdoll" (0.968) score almost the same
 - Recall tells them apart (0.8 vs. 0); with a rare class, look at precision and recall
 
 ### Thresholds
 - Saying "Ragdoll" when its probability is above a threshold; table of thresholds from
   0.1 to 0.9 with precision and recall
 - Choosing a threshold by cost, on validation photos: false alarm costs 3 (adoption site)
-  gives 0.35; miss costs 3 (lost-pet service) gives 0.15
+  gives 0.40; miss costs 3 (lost-pet service) gives 0.15
 - Why both are below 0.5: this model says "Ragdoll" too rarely; 0.5 is only a default
 
 ---
@@ -92,8 +92,8 @@ ideas are linked from each notebook as optional reference.
 
 ### A neuron that tells Birmans from Ragdolls
 - Selecting the two cat breeds with `|` and `&`
-- `LogisticRegression` on the 512 features: test accuracy 0.89 (the four-breed model got
-  84 of the 100 test cats right)
+- `LogisticRegression` on the 512 features: test accuracy 0.85 (the four-breed model got
+  83 of the 100 test cats right)
 - `coef_` (512 weights) and `intercept_`
 
 ### One prediction by hand
