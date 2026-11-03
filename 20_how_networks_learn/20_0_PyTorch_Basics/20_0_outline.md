@@ -125,7 +125,6 @@ regression from Unit 17), both variables standardized
 
 | File | Description |
 |------|-------------|
-| `19_0_practice_quiz.ipynb` | Practice quiz (12 questions across the three notebooks) |
 | `19_0_glossary.md` | Key terminology definitions |
 | `19_0_outline.md` | This outline |
 

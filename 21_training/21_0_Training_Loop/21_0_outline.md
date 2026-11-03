@@ -159,7 +159,6 @@ Every TODO cell is comment-only (Run-All safe); each task has an
 
 | File | Description |
 |------|-------------|
-| `19_1_practice_quiz.ipynb` | Practice quiz (12 questions across the three content notebooks) |
 | `19_1_glossary.md` | Key terminology definitions |
 | `19_1_outline.md` | This outline |
 

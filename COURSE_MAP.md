@@ -126,7 +126,8 @@ to projects now go one each to units 20–23.
 ## Maintenance Notes
 
 - Module layout follows 377: `<unit>/<module>/` holds the notebooks plus
-  `*_outline.md`, `*_glossary.md` and `*_practice_quiz.ipynb`.
+  `*_outline.md` and `*_glossary.md`. There are no practice quiz notebooks
+  (dropped 2026-11-02); practice quizzes, if any, live on the quiz site only.
 - **Saved outputs are decided notebook by notebook** (unlike 377, which
   commits none). Keep them where a run is too long for class or where
   students need to see a result before they can run it. A ported

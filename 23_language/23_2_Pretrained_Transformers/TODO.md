@@ -7,7 +7,7 @@ Purpose: the text version of transfer learning. Use pretrained transformers thro
 ## Notebooks
 - [ ] `23_2_1_Using_Pretrained_Models.ipynb`: Hugging Face `pipeline` for sentiment, zero-shot classification and summarization; read the model card
 - [ ] `23_2_2_Fine_Tuning_DistilBERT.ipynb`: IMDB (decided 2026-10-24; no student-chosen text set), compared against a TF-IDF + logistic regression baseline (377 habit: beat a baseline); confusion matrix; error analysis
-- [ ] `23_2_outline.md`, `23_2_glossary.md`, `23_2_practice_quiz.ipynb`
+- [ ] `23_2_outline.md`, `23_2_glossary.md`
 
 ## Decide
 - [ ] Dataset size so fine-tuning fits in class. If it can't, keep the full run as a saved output and have pairs run only evaluation and error analysis. T4 results (2026-10-27): 2,000 reviews × 256 tokens, batch 16, one epoch with a plain PyTorch loop takes 41 s and reaches 86.3% on 1,000 test reviews, so this fits in class on the GPU with room for a larger training set. Still needs the CPU number.

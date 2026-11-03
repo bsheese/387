@@ -184,6 +184,8 @@ These supersede the text above where the two conflict.
 - **Six datasets** plus the XOR toy: Oxford-IIIT Pets, penguins, Wisconsin breast cancer, Fashion-MNIST, IMDB. Dropped: Titanic, CTG, wine, CIFAR-10, student photos, a student-chosen text set.
 - **Fashion-MNIST moves earlier:** 21_0_2 (multiclass) and all of 21_1 (regularization) use a Fashion-MNIST MLP, and 22_0 swaps in a CNN on the same data. Units 20–21 no longer teach deep learning only on tabular data.
 - **No take-home work.** Everything required happens in class; readings, videos and practice quizzes are optional.
+- **No practice quiz notebooks** (decided 2026-11-02). The `*_practice_quiz` notebooks in the table above are removed; any practice quizzes go on the quiz site only.
+- **Enrollment:** about 15 students expected (estimate, 2026-11-02), so about 7 or 8 pairs.
 - **The on-ramp runs on the week-1 Pets model:** baseline, confusion matrix, one neuron (the model's last layer), softmax. The 377 notebooks are optional reference, not class time. 19_0 gets two days.
 - **Runtime in class:** pair activities can't include long-running cells (30 minutes is far too long). Use small data, few epochs and pretrained weights, or show long runs as saved outputs.
 

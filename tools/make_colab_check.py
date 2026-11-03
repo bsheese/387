@@ -1,9 +1,11 @@
 """Build tools/colab_check.ipynb, the notebook that times the course in Colab.
 
-It is not course material. It records Colab's library versions, runs every
-course notebook through smoke_test.py, and times the candidate models for
-22_2 (diffusion) and unit 23 (DistilBERT, GPT-2). The last cell prints one
-block of text to paste back.
+It is not course material. It records Colab's library versions, times the
+candidate models for 22_2 (diffusion) and unit 23 (DistilBERT, GPT-2), and
+runs the course notebooks through smoke_test.py. On the CPU the notebooks are
+run one or two units per session, because a single run of all of them took
+more than an hour and stalled. The last cell prints one block of text to
+paste back.
 
     python tools/make_colab_check.py
 """
@@ -24,12 +26,21 @@ cells = [
 
 Not course material. This notebook times the course on Colab and tests the models planned for 22_2 and unit 23.
 
-**Run it twice:**
+**GPU run:** Runtime → Change runtime type → **T4 GPU** → Save. Then Runtime → **Run all**. About 20–30 minutes. (Done 2026-10-27.)
 
-1. **GPU:** Runtime → Change runtime type → **T4 GPU** → Save. Then Runtime → **Run all**. About 20–30 minutes.
-2. **CPU:** Runtime → Change runtime type → **CPU** → Save. Then Runtime → **Run all** again. Part 2 (every course notebook) can take a few hours on the CPU; it prints each notebook's time as it finishes and can run unattended. To get the model timings without it, set `RUN_COURSE_NOTEBOOKS = False` in the first code cell before Run all. Parts that need a GPU are skipped automatically.
+**CPU run, in pieces.** Runtime → Change runtime type → **CPU** → Save. Running every course notebook at once on the CPU took more than an hour and stalled, so do it as separate sessions. Before each one, edit the two settings in the first code cell, then Runtime → **Run all**:
 
-After each run, copy everything printed by the **last cell** and paste it back to Claude.
+| Session | `RUN_MODELS` | `CPU_UNITS` | What it times |
+| --- | --- | --- | --- |
+| A | `True` | `[]` | The diffusion and language models only (Parts 2 and 3) |
+| B | `False` | `['19']` | 19_0 and 19_1 (19_0_1 trains the Pets model) |
+| C | `False` | `['20', '21']` | PyTorch basics and the Fashion-MNIST training notebooks |
+| D | `False` | `['22']` | The CNN and transfer-learning notebooks (likely the slowest) |
+| E | `False` | `['23']` | Tokens, embeddings and attention |
+
+Each notebook gets at most about 15 minutes on the CPU, so one slow notebook can't hold up the rest for long. Parts that need a GPU are skipped automatically. Keep the tab open while it runs, since Colab may disconnect an idle session.
+
+After each session, copy everything printed by the **last cell** and paste it back to Claude. If a session stalls partway, paste what Part 4 has printed so far; it shows each notebook's time as it finishes.
 
 If Colab warns that a Hugging Face token (`HF_TOKEN`) isn't set, ignore it; nothing here needs one. Each part records its own errors, so a failure in one part doesn't stop the rest.
 """),
@@ -38,9 +49,14 @@ import importlib.metadata, json, os, platform, subprocess, sys, time, traceback
 os.environ['HF_HUB_DISABLE_XET'] = '1'      # the classic download path; the newer one hung in testing
 import torch
 
-RUN_COURSE_NOTEBOOKS = True    # False skips Part 2 (every course notebook), the slow part on the CPU
+RUN_MODELS = True    # Parts 2 and 3: the diffusion and language models
+CPU_UNITS = []       # Part 4 on the CPU: the units to run this session, e.g. ['19'] or ['20', '21']
+                     # (on the GPU, Part 4 runs every unit)
 RESULTS = {}
 GPU = torch.cuda.is_available()
+UNIT_FOLDERS = {'19': '19_onramp', '20': '20_how_networks_learn', '21': '21_training',
+                '22': '22_images', '23': '23_language'}
+units = list(UNIT_FOLDERS) if GPU else [str(u) for u in CPU_UNITS]
 device = 'cuda' if GPU else 'cpu'
 
 def record(section, **values):
@@ -58,7 +74,7 @@ def run_part(section, fn):
     record(section, seconds=round(time.time() - start, 1))
     print(f"\n[{section}] {RESULTS[section].get('status')} in {RESULTS[section]['seconds']} s")
 
-print('device:', device)
+print('device:', device, '| models:', RUN_MODELS, '| course units:', units or 'none')
 """),
 ("md", "## Part 1: Environment"),
 ("code", r"""
@@ -87,48 +103,7 @@ run_part('environment', environment)
 print(json.dumps(RESULTS['environment'], indent=1))
 """),
 ("md", r"""
-## Part 2: Every course notebook
-
-Clones the course repo and runs `smoke_test.py`, which executes each notebook in a fresh folder the way a student would, downloading data from GitHub. The 19_0_1 cell that asks for a photo upload is replaced first, because it would wait forever with nobody to click. This is the longest part, especially on the CPU.
-"""),
-("code", r"""
-def course_notebooks():
-    if not RUN_COURSE_NOTEBOOKS:
-        record('course_notebooks', skipped='RUN_COURSE_NOTEBOOKS = False')
-        return
-    subprocess.run(['rm', '-rf', '387_check'])
-    subprocess.run(['git', 'clone', '--depth', '1', '-q', 'https://github.com/bsheese/387', '387_check'], check=True)
-
-    import nbformat
-    path = '387_check/19_onramp/19_0_Whole_Game/19_0_1_Your_First_Image_Model.ipynb'
-    nb = nbformat.read(path, as_version=4)
-    for cell in nb.cells:
-        if 'files.upload()' in cell.source:
-            cell.source = "print('photo upload skipped in the Colab check')"
-    nbformat.write(nb, path)
-
-    # Stream smoke_test's output as it runs, so each notebook's time shows up when it finishes.
-    # On the CPU each notebook gets about 15 minutes (smoke_test's hard limit is the timeout + 60 s), so one slow notebook can't hold up the rest for long.
-    timeout = '1800' if GPU else '900'
-    proc = subprocess.Popen([sys.executable, '-u', 'smoke_test.py', '--remote-data', '--slow', '30', '--timeout', timeout],
-                            cwd='387_check', stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
-    chunks = []
-    while chunk := proc.stdout.read(1):
-        sys.stdout.write(chunk)
-        sys.stdout.flush()
-        chunks.append(chunk)
-    proc.wait()
-    output = ''.join(chunks)
-    lines = [l for l in output.splitlines() if l.strip() and '#' not in l]
-    record('course_notebooks', exit_code=proc.returncode,
-           report=[l for l in lines if ' ... ' in l or ' s  ' in l or 'passed' in l or 'FAIL' in l][:60])
-    if proc.returncode != 0:
-        record('course_notebooks', stderr_tail=output[-1500:])
-
-run_part('course_notebooks', course_notebooks)
-"""),
-("md", r"""
-## Part 3: Diffusion models for 22_2
+## Part 2: Diffusion models for 22_2
 
 Three candidates:
 
@@ -175,7 +150,8 @@ def ddpm():
         axes[row, 0].set_title(name, fontsize=9)
     plt.show()
 
-run_part('ddpm_cifar10', ddpm)
+if RUN_MODELS:
+    run_part('ddpm_cifar10', ddpm)
 """),
 ("code", r"""
 def text_to_image(section, repo, steps, dtype):
@@ -205,16 +181,17 @@ def text_to_image(section, repo, steps, dtype):
             torch.cuda.empty_cache()
     return part
 
-run_part('bk_sdm_small', text_to_image('bk_sdm_small', 'nota-ai/bk-sdm-small', 25 if GPU else 10,
-                                       torch.float16 if GPU else torch.float32))
-if GPU:
+if RUN_MODELS:
+    run_part('bk_sdm_small', text_to_image('bk_sdm_small', 'nota-ai/bk-sdm-small', 25 if GPU else 10,
+                                           torch.float16 if GPU else torch.float32))
+if RUN_MODELS and GPU:
     run_part('stable_diffusion_1_5', text_to_image('stable_diffusion_1_5',
                                                    'stable-diffusion-v1-5/stable-diffusion-v1-5', 30, torch.float16))
-else:
+elif RUN_MODELS:
     record('stable_diffusion_1_5', skipped='no GPU')
 """),
 ("md", r"""
-## Part 4: Language models for unit 23
+## Part 3: Language models for unit 23
 
 - **DistilBERT fine-tuned on IMDB reviews** (23_2): 2,000 training reviews, 1,000 test reviews, 256 tokens each, one epoch, with a plain PyTorch loop like unit 21's. On the CPU only 10 training steps are timed, to estimate a full epoch.
 - **A ready-made sentiment model** (`distilbert-base-uncased-finetuned-sst-2-english`) on 500 test reviews, with no training.
@@ -294,9 +271,53 @@ def gpt2():
     record('gpt2', seconds_for_5_samples_of_50_tokens=round(time.time() - t0, 1),
            sample=tok.decode(outs[0], skip_special_tokens=True)[:300])
 
-run_part('distilbert_imdb', distilbert)
-run_part('sst2_pipeline', ready_made)
-run_part('gpt2', gpt2)
+if RUN_MODELS:
+    run_part('distilbert_imdb', distilbert)
+    run_part('sst2_pipeline', ready_made)
+    run_part('gpt2', gpt2)
+"""),
+("md", r"""
+## Part 4: The course notebooks
+
+Clones the course repo and runs `smoke_test.py`, which executes each notebook in a fresh folder the way a student would, downloading data from GitHub. The 19_0_1 cell that asks for a photo upload is replaced first, because it would wait forever with nobody to click. On the GPU it runs every unit; on the CPU only the units in `CPU_UNITS`.
+"""),
+("code", r"""
+def course_notebooks():
+    if not units:
+        record('course_notebooks', skipped='CPU_UNITS is empty')
+        return
+    record('course_notebooks', units=units)
+    subprocess.run(['rm', '-rf', '387_check'])
+    subprocess.run(['git', 'clone', '--depth', '1', '-q', 'https://github.com/bsheese/387', '387_check'], check=True)
+
+    import nbformat
+    path = '387_check/19_onramp/19_0_Whole_Game/19_0_1_Your_First_Image_Model.ipynb'
+    nb = nbformat.read(path, as_version=4)
+    for cell in nb.cells:
+        if 'files.upload()' in cell.source:
+            cell.source = "print('photo upload skipped in the Colab check')"
+    nbformat.write(nb, path)
+
+    # Stream smoke_test's output as it runs, so each notebook's time shows up when it finishes.
+    # On the CPU each notebook gets about 15 minutes (smoke_test's hard limit is the timeout + 60 s), so one slow notebook can't hold up the rest for long.
+    timeout = '1800' if GPU else '900'
+    proc = subprocess.Popen([sys.executable, '-u', 'smoke_test.py', '--remote-data', '--slow', '30', '--timeout', timeout]
+                            + [UNIT_FOLDERS[u] for u in units],
+                            cwd='387_check', stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
+    chunks = []
+    while chunk := proc.stdout.read(1):
+        sys.stdout.write(chunk)
+        sys.stdout.flush()
+        chunks.append(chunk)
+    proc.wait()
+    output = ''.join(chunks)
+    lines = [l for l in output.splitlines() if l.strip() and '#' not in l]
+    record('course_notebooks', exit_code=proc.returncode,
+           report=[l for l in lines if ' ... ' in l or ' s  ' in l or 'passed' in l or 'FAIL' in l][:60])
+    if proc.returncode != 0:
+        record('course_notebooks', stderr_tail=output[-1500:])
+
+run_part('course_notebooks', course_notebooks)
 """),
 ("md", "## Summary: copy everything below and paste it back"),
 ("code", r"""

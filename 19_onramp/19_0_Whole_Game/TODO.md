@@ -1,6 +1,6 @@
 # 19_0 Whole Game — TODO
 
-**Status:** drafted 2026-10-25 (both notebooks, outline, glossary, practice quiz); not yet tested in Colab. **Days:** 2 (decided 2026-10-24). **Assumes:** nothing beyond Python.
+**Status:** drafted 2026-10-25 (both notebooks, outline, glossary); not yet tested in Colab. **Days:** 2 (decided 2026-10-24). **Assumes:** nothing beyond Python.
 
 Purpose: on day one students fine-tune a pretrained image model and use it, before they know what a weight is (fast.ai's order). Say it's a black box on purpose. The 19_1 on-ramp then teaches the ML basics **on this same model** (decided 2026-10-24), and 22_1 opens up the box.
 
@@ -13,7 +13,7 @@ What 19_0 leaves behind for 19_1 (all in `data/`, see `data/README.md`):
 ## Notebooks
 - [x] `19_0_1_Your_First_Image_Model.ipynb` (day 1): Colab setup, the photos, the pretrained ResNet-18's own ImageNet guesses, freeze + replace the last layer, train 8 epochs, test accuracy, `predict()`, upload your own photo, save.
 - [x] `19_0_2_What_Just_Happened.ipynb` (day 2): rebuild from the course copy, the 512 features, test results table and crosstab, the mistakes, confidence, other breeds, save outputs for 19_1, history timeline, where the photos came from (ethics).
-- [x] `19_0_outline.md`, `19_0_glossary.md`, `19_0_practice_quiz.ipynb`
+- [x] `19_0_outline.md`, `19_0_glossary.md` (practice quiz notebook removed 2026-11-02)
 
 ## Decided
 - [x] Dataset: Oxford-IIIT Pets (decided 2026-10-24).

@@ -10,7 +10,7 @@ Note: `TODO.md` files are tracked in git (removed from `.gitignore` on 2026-10-2
 - [ ] **Check the session budget against the Spring 2027 calendar** (break week, holidays, actual class-day count). Draft in `COURSE_MAP.md`: 26 teaching days + 4 in-class exam days; the unit 23 exam is in the final exam period. Unit 19 has 6 teaching days (19_0 gets 2), so unit 23 drops to 6.
 - [x] Unit 23 exam: in the final exam period (decided 2026-10-24); unit 23 gets 7 teaching days.
 - [ ] Proposal says "Units 21–24 need to be written". With the project cut and Fashion-MNIST moved, the writing list is: 19_0, 19_1 (trim + dataset swaps), 21_0_2 and 21_1 (move to Fashion-MNIST), 22, 23, plus the 20_0 math rewrite. Confirm.
-- [ ] Ungraded practice quizzes (0%): keep the per-module `*_practice_quiz.ipynb` + quiz site, or quiz site only? (The three existing quiz notebooks are 16-word stubs.)
+- [x] Ungraded practice quizzes (0%): no practice quiz notebooks (decided 2026-11-02; the stubs were deleted). Quiz site only, if any.
 
 ## Decide (from PLAN_CRITIQUE.md)
 Suggested order: schedule (1, 3) → on-ramp (2) → the rest.
@@ -28,10 +28,12 @@ Suggested order: schedule (1, 3) → on-ramp (2) → the rest.
   - `tools/colab_check.ipynb` (built by `tools/make_colab_check.py`, 2026-10-25) does this: Colab versions, every course notebook through `smoke_test.py --remote-data`, DDPM CIFAR-10 / BK-SDM-Small / SD 1.5, DistilBERT on 2,000 IMDB reviews, the SST-2 pipeline, GPT-2. Run once on a T4 GPU and once on CPU; paste back the last cell. Repeat on the GPU in January 2027.
   - [x] **T4 GPU run (2026-10-27):** all 20 course notebooks passed (603 s total; slowest cells 31–38 s: the 20_0_2 timing demo, the 22_1_1 Pets transforms, the 23_0_2 sentence-transformer download). DDPM CIFAR-10: 50 DDIM steps 2.1 s, 1,000 DDPM steps 29.8 s (4 images). BK-SDM-Small: load 53 s, 3.1 s per image, 2.7 GB. SD 1.5: load 128 s, 4.6 s per image, 3.4 GB. DistilBERT, 2,000 IMDB reviews, one epoch: 41 s, 86.3% on 1,000 test reviews. SST-2 pipeline with no training: 87.6% on 500 reviews in 14 s. GPT-2: 5 samples of 50 tokens in 0.7 s. Colab versions: Python 3.13, torch 2.11, numpy 2.1, pandas 2.2, scikit-learn 1.6, transformers 5.20, diffusers 0.42.
   - [ ] CPU run (Runtime → Change runtime type → CPU), to size things for a pair that doesn't get a GPU
+    - The first all-at-once CPU attempt (late Oct) ran past an hour and stalled in the course-notebook part. Reworked 2026-11-02: model timings now come first, and the course notebooks run one or two units per session (`RUN_MODELS` / `CPU_UNITS` in the first cell; sessions A–E are listed in the notebook's intro).
+    - [ ] A: models only  - [ ] B: unit 19  - [ ] C: units 20–21  - [ ] D: unit 22  - [ ] E: unit 23
 
 2. On-ramp design
 - [x] **Teach the on-ramp through the week-1 image model** (decided 2026-10-24). The 377 notebooks are optional reference only. See the 19_1 TODO.
-- [ ] Enrollment estimate: how many 377 graduates vs. CS 128 + CS/MATH 136 students? Mixed pairs and the on-ramp design depend on it.
+- [x] Enrollment estimate: about 15 students (2026-11-02), so about 7 or 8 pairs. The split between 377 graduates and CS 128 + CS/MATH 136 students is still unknown.
 
 3. Dataset for units 21–22
 - [x] **Move to Fashion-MNIST** (decided 2026-10-24): 21_0_2 (multiclass) and all of 21_1 (regularization, MLP), so 22_0 swaps in a CNN on the same data. Tasks are in the 21_0 and 21_1 TODOs.

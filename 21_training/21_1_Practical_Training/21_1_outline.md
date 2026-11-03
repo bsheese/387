@@ -234,7 +234,6 @@ solution" cell that prints reference code.
 
 | File | Description |
 |------|-------------|
-| `20_1_practice_quiz.ipynb` | Practice quiz (12 questions across the five content notebooks) |
 | `20_1_glossary.md` | Key terminology definitions |
 | `20_1_outline.md` | This outline |
 
