@@ -17,7 +17,7 @@ NumPy/pandas: no separate primer (it would have been pre-work). Teach the few Nu
 
 ## Runtime
 - [x] Every cell runs on the saved predictions or cached features from 19_0, so nothing is retrained in class. The overfitting and selection demos in 19_1_1 train a last layer on the cached features, which takes seconds.
-- [ ] Time all four in Colab (expected: seconds per cell).
+- [x] Time all four in Colab. Colab CPU (2026-11-02): 21 s, 12 s, 16 s and 16 s for whole notebooks, so they run fine live on either runtime.
 
 ## Notes
 - **19_0 outputs are ready** in `data/` (see `data/README.md`): `pets4_predictions.csv` (800 rows with split, breed, prediction, 4 scores, 4 probabilities), `pets4_features.npz` (800 × 512), `pets4_history.csv` (8 epochs) and `pets4_head.pt`. Breeds: Birman, Ragdoll, basset_hound, beagle. Test accuracy 0.90 (Ragdoll 38/50, Birman 46, basset 46, beagle 50).
