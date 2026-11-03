@@ -11,4 +11,5 @@ Purpose: open up the 19_0 black box, then show how image models fail.
 
 ## Runtime
 - [x] Time both in Colab. T4 GPU (2026-10-27): both passed; slowest cell 31 to 38 s (the Pets transforms in 22_1_1). Colab CPU (2026-11-02, session D): 22_1_2 passed in 419 s (cells 7, 9 and 13 took 102, 141 and 156 s). **22_1_1 did not finish within the 15-minute cap.** Locally its from-scratch CNN (cell 13) takes 75 s and fine-tuning (cell 17) 67 s, so on Colab's CPU each would take roughly 8 to 14 minutes and the notebook 17 to 27 minutes.
-- [ ] Decide what a CPU-only pair does in 22_0_2 and 22_1_1. Suggested: a switch like 19_0_1's `USE_COURSE_COPY` that, without a GPU, loads the saved training histories (and weights where later cells need the model) from `data/` instead of training, so the numbers still match the text. Cutting epochs or data on the CPU would make the results differ from what the text describes.
+- [x] CPU-only pairs (decided 2026-11-02): students use Colab's free GPU. The intro of 22_1_1 says the notebook needs a GPU, to switch to the partner's account if Colab refuses one, and otherwise to read the saved outputs for the two training cells. No CPU switch.
+- [ ] Pair activities: keep the required questions off 22_1_1's cells 13 (the CNN from scratch) and 17 (fine-tuning), so a pair stuck on the CPU can still finish the required part.

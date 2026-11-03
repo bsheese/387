@@ -6,7 +6,7 @@ Purpose: the text version of transfer learning. Use pretrained transformers thro
 
 ## Notebooks
 - [ ] `23_2_1_Using_Pretrained_Models.ipynb`: Hugging Face `pipeline` for sentiment, zero-shot classification and summarization; read the model card
-- [ ] `23_2_2_Fine_Tuning_DistilBERT.ipynb`: IMDB (decided 2026-10-24; no student-chosen text set), compared against a TF-IDF + logistic regression baseline (377 habit: beat a baseline); confusion matrix; error analysis
+- [ ] `23_2_2_Fine_Tuning_DistilBERT.ipynb` (needs a GPU: open with the same "This notebook needs a GPU" paragraph as 22_0_2 and 22_1_1, keep saved outputs, and keep the pair activity's required questions off the fine-tuning cell): IMDB (decided 2026-10-24; no student-chosen text set), compared against a TF-IDF + logistic regression baseline (377 habit: beat a baseline); confusion matrix; error analysis
 - [ ] `23_2_outline.md`, `23_2_glossary.md`
 
 ## Decide
