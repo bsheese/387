@@ -33,7 +33,7 @@ Suggested order: schedule (1, 3) → on-ramp (2) → the rest.
     - Session B (unit 19) done 2026-11-02: all 6 notebooks passed in 862 s; only 19_0_1's training cell (581 s) is slow. Details in the 19_0 TODO.
     - Session C (units 20–21) done 2026-11-02: all 7 passed in 661 s; slowest cell 213 s (21_1_2's schedule comparison). Details in the module TODOs. smoke_test.py no longer prints its venv warning where there's no venv (Colab).
     - Session D (unit 22) done 2026-11-02: 22_0_1 (24 s) and 22_1_2 (419 s) passed; 22_0_2 and 22_1_1 hit the 15-minute cap (estimated 20 to 30 minutes each on Colab's CPU). Details and a suggested CPU switch in the 22_0 and 22_1 TODOs.
-    - [x] A: models only  - [x] B: unit 19  - [x] C: units 20–21  - [x] D: unit 22  - [x] E: unit 23 (all 3 passed in 198 s; slowest cell 78 s, a model download in 23_0_2)  - [ ] E: unit 23
+    - [x] A: models only  - [x] B: unit 19  - [x] C: units 20–21  - [x] D: unit 22  - [x] E: unit 23 (all 3 passed in 198 s; slowest cell 78 s, a model download in 23_0_2)
 
 2. On-ramp design
 - [x] **Teach the on-ramp through the week-1 image model** (decided 2026-10-24). The 377 notebooks are optional reference only. See the 19_1 TODO.
