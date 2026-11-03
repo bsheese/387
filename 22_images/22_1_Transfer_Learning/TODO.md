@@ -10,4 +10,5 @@ Purpose: open up the 19_0 black box, then show how image models fail.
 - [ ] `22_1_outline.md`, `22_1_glossary.md`: later pass.
 
 ## Runtime
-- [ ] Time both in Colab (GPU and CPU). Fine-tuning and the from-scratch CNN are the long cells.
+- [x] Time both in Colab. T4 GPU (2026-10-27): both passed; slowest cell 31 to 38 s (the Pets transforms in 22_1_1). Colab CPU (2026-11-02, session D): 22_1_2 passed in 419 s (cells 7, 9 and 13 took 102, 141 and 156 s). **22_1_1 did not finish within the 15-minute cap.** Locally its from-scratch CNN (cell 13) takes 75 s and fine-tuning (cell 17) 67 s, so on Colab's CPU each would take roughly 8 to 14 minutes and the notebook 17 to 27 minutes.
+- [ ] Decide what a CPU-only pair does in 22_0_2 and 22_1_1. Suggested: a switch like 19_0_1's `USE_COURSE_COPY` that, without a GPU, loads the saved training histories (and weights where later cells need the model) from `data/` instead of training, so the numbers still match the text. Cutting epochs or data on the CPU would make the results differ from what the text describes.

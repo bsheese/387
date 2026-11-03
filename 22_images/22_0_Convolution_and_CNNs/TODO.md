@@ -14,4 +14,5 @@ Decided 2026-10-25: augmentation is a section of 22_0_2, not its own notebook (u
 - [ ] Optional: Learn PyTorch ch. 03 (Computer Vision) as reference reading (Spring 2025 used it)
 
 ## Runtime
-- [ ] Time 22_0_2 in Colab (GPU and CPU).
+- [x] Time 22_0_2 in Colab. T4 GPU (2026-10-27): passed, no cell over 38 s. Colab CPU (2026-11-02, session D): **did not finish within the 15-minute cap**. Local M2 cell times are 53 s (cell 11, the 12-epoch CNN), 11 s (cell 13, the MLP), 40 s (cell 19, batch norm on/off) and 48 s (cell 23, augmentation), 160 s in all; Colab's CPU ran 7 to 11 times slower than the M2 in sessions B to D, so the whole notebook would take roughly 20 to 30 minutes there, with each of those three cells taking 5 to 10 minutes.
+- [ ] Decide what a CPU-only pair does in 22_0_2 (see the 22_1 TODO for the same question).
