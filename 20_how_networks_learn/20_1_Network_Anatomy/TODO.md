@@ -11,4 +11,5 @@ Purpose: `nn.Module`, logistic regression as a one-layer network, and a hidden l
 - [ ] **Create** `20_1_outline.md`, `20_1_glossary.md` in the later pass. The anatomy sections are still inside `21_0_outline.md` and `21_0_glossary.md` (the old 19_1 files); move them here then.
 
 ## Exam
+- [x] Timed on the Colab CPU (2026-11-02, session C): 39 s for the whole notebook.
 - [ ] Unit 20 exam: tensor shapes, nudge-test reasoning, reading a loss curve, parameter counts

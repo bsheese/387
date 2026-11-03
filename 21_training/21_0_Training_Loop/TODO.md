@@ -9,4 +9,5 @@ Decided 2026-10-25: unit 21 is 3 notebooks in 3 days. 21_0_1 builds the loop on 
 - [ ] `21_0_outline.md`, `21_0_glossary.md`: stale (old 19_1 content, includes anatomy sections that belong in 20_1). Later pass.
 
 ## Activities
+- [x] Timed on the Colab CPU (2026-11-02, session C): 37 s for the whole notebook.
 - [ ] One pair activity (in `canvas/private/387_*`)

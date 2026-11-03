@@ -15,5 +15,6 @@ Purpose: tensors, then the nudge test, then autograd as "a fast, exact nudge tes
 - [ ] Glossary and outline still mention `17_0` and `17_0_5` (later pass).
 
 ## Activities
+- [x] Timed on the Colab CPU (2026-11-02, session C): 20_0_1 15 s, 20_0_2 57 s (the cost-of-nudging timing demo is 45 s of that), 20_0_3 20 s. Fine live on either runtime.
 - [ ] TensorFlow Playground pair activity (predict, then test): no hidden layer on the circle data, learning rate 3, L2 turned up
 - [ ] 3Blue1Brown chapters 1–2 (what a network is, gradient descent): show a short clip in class, or list as optional (no take-home work)

@@ -16,4 +16,5 @@ Decided 2026-10-25: the five old notebooks (dropout, batch norm, LR schedules, c
 - [ ] Pair activities for 21_1_1 and 21_1_2 (in `canvas/private/387_*`). Candidates from the cut exercises: dropout rate sweep, patience choice, reading curves to diagnose over/underfitting.
 
 ## Exam
+- [x] Timed on the Colab CPU (2026-11-02, session C). 21_1_1: 178 s in total; the 10,000-image run (30 epochs) is the slowest cell at 88 s. 21_1_2: 312 s in total; the constant-rate vs. cosine comparison (two models × 30 epochs) takes 213 s, the other training cells 46 s and 39 s. Both run in class on the CPU. For the pair activities, one 30-epoch run on 1,000 images costs roughly 40–50 s on the CPU, so a sweep of three or four settings fits; avoid sweeps on the 10,000-image set or 30-epoch pairs of runs.
 - [ ] Unit 21 exam: read train/val curves, diagnose overfitting, choose a fix

@@ -78,6 +78,8 @@ def venv_warning():
     whatever kernel is registered elsewhere on the machine, and failures from
     that mismatch look exactly like real notebook bugs.
     """
+    if not VENV_DIR.exists():
+        return None   # no local venv to compare against (Colab, a fresh clone)
     try:
         running = pathlib.Path(sys.prefix).resolve()
         expected = VENV_DIR.resolve()

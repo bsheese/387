@@ -31,7 +31,8 @@ Suggested order: schedule (1, 3) → on-ramp (2) → the rest.
     - The first all-at-once CPU attempt (late Oct) ran past an hour and stalled in the course-notebook part. Reworked 2026-11-02: model timings now come first, and the course notebooks run one or two units per session (`RUN_MODELS` / `CPU_UNITS` in the first cell; sessions A–E are listed in the notebook's intro).
     - Session A (models only) done 2026-11-02: the CPU numbers are in the 22_2, 23_2 and 23_3 TODOs. The CPU runtime had 2 vCPUs, 12 GB RAM, and torch used 1 thread. Its versions had moved since the T4 run: numpy 2.4 (was 2.1), transformers 5.22 (was 5.20).
     - Session B (unit 19) done 2026-11-02: all 6 notebooks passed in 862 s; only 19_0_1's training cell (581 s) is slow. Details in the 19_0 TODO.
-    - [x] A: models only  - [x] B: unit 19  - [ ] C: units 20–21  - [ ] D: unit 22  - [ ] E: unit 23
+    - Session C (units 20–21) done 2026-11-02: all 7 passed in 661 s; slowest cell 213 s (21_1_2's schedule comparison). Details in the module TODOs. smoke_test.py no longer prints its venv warning where there's no venv (Colab).
+    - [x] A: models only  - [x] B: unit 19  - [x] C: units 20–21  - [ ] D: unit 22  - [ ] E: unit 23
 
 2. On-ramp design
 - [x] **Teach the on-ramp through the week-1 image model** (decided 2026-10-24). The 377 notebooks are optional reference only. See the 19_1 TODO.
