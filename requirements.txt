@@ -11,6 +11,8 @@ scikit-learn==1.9.1
 torch==2.14.1
 torchvision==0.29.1
 transformers==5.20.2          # unit 23 (tokenizers, DistilBERT, MiniLM, GPT-2)
+diffusers==0.42.0             # 22_2_2 (DDPM on CIFAR-10, BK-SDM-Small)
+accelerate==1.15.0            # lets diffusers load large models with less memory
 datasets==5.1.0              # only for data/make_imdb.py
 pillow==13.0.0
 

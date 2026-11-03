@@ -62,6 +62,9 @@ KEEP_OUTPUTS = {
     "22_images/22_0_Convolution_and_CNNs/22_0_2_First_CNN.ipynb",
     "22_images/22_1_Transfer_Learning/22_1_1_Transfer_Learning.ipynb",
     "22_images/22_1_Transfer_Learning/22_1_2_What_CNNs_Get_Wrong.ipynb",
+    # 22_2: the autoencoder trains for a few minutes on a CPU; the diffusion notebook runs large pretrained models.
+    "22_images/22_2_Autoencoders_and_Diffusion/22_2_1_Denoising_Autoencoder.ipynb",
+    "22_images/22_2_Autoencoders_and_Diffusion/22_2_2_Diffusion.ipynb",
 }
 
 # Moved from the old 387 with outputs and not yet reviewed (TODO.md, "Review outputs,
