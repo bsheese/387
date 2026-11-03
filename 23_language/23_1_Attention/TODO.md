@@ -9,3 +9,4 @@
 ## Activities
 - [ ] 3Blue1Brown "But what is a GPT?" and "Attention in transformers" (2024): a short clip in class, or optional (no take-home work)
 - [ ] Transformer Explainer pair activity: change the prompt and the temperature, and explain the attention weights and next-token probabilities
+- [x] Timed on the Colab CPU (2026-11-02, session E): 23_1_1 runs in 32 s, so it works live on either runtime.

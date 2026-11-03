@@ -13,3 +13,4 @@ Data: `data/imdb_reviews.csv` (2,000 train / 1,000 val / 2,000 test, balanced), 
 - RNNs/LSTMs: one historical slide only (decided). Not in the notebooks.
 - MiniLM sentence embeddings + logistic regression get only 0.777 on IMDB sentiment (TF-IDF + logistic regression: 0.833), measured while building 23_0_2. Use that comparison in 23_2_2.
 - Source: Hugging Face LLM course ch. 1–2 (free)
+- [x] Timed on the Colab CPU (2026-11-02, session E): 23_0_1 49 s, 23_0_2 114 s (78 s of it is cell 19, which downloads and loads the sentence-transformer model). Both run fine live on either runtime.
