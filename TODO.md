@@ -29,7 +29,8 @@ Suggested order: schedule (1, 3) → on-ramp (2) → the rest.
   - [x] **T4 GPU run (2026-10-27):** all 20 course notebooks passed (603 s total; slowest cells 31–38 s: the 20_0_2 timing demo, the 22_1_1 Pets transforms, the 23_0_2 sentence-transformer download). DDPM CIFAR-10: 50 DDIM steps 2.1 s, 1,000 DDPM steps 29.8 s (4 images). BK-SDM-Small: load 53 s, 3.1 s per image, 2.7 GB. SD 1.5: load 128 s, 4.6 s per image, 3.4 GB. DistilBERT, 2,000 IMDB reviews, one epoch: 41 s, 86.3% on 1,000 test reviews. SST-2 pipeline with no training: 87.6% on 500 reviews in 14 s. GPT-2: 5 samples of 50 tokens in 0.7 s. Colab versions: Python 3.13, torch 2.11, numpy 2.1, pandas 2.2, scikit-learn 1.6, transformers 5.20, diffusers 0.42.
   - [ ] CPU run (Runtime → Change runtime type → CPU), to size things for a pair that doesn't get a GPU
     - The first all-at-once CPU attempt (late Oct) ran past an hour and stalled in the course-notebook part. Reworked 2026-11-02: model timings now come first, and the course notebooks run one or two units per session (`RUN_MODELS` / `CPU_UNITS` in the first cell; sessions A–E are listed in the notebook's intro).
-    - [ ] A: models only  - [ ] B: unit 19  - [ ] C: units 20–21  - [ ] D: unit 22  - [ ] E: unit 23
+    - Session A (models only) done 2026-11-02: the CPU numbers are in the 22_2, 23_2 and 23_3 TODOs. The CPU runtime had 2 vCPUs, 12 GB RAM, and torch used 1 thread. Its versions had moved since the T4 run: numpy 2.4 (was 2.1), transformers 5.22 (was 5.20).
+    - [x] A: models only  - [ ] B: unit 19  - [ ] C: units 20–21  - [ ] D: unit 22  - [ ] E: unit 23
 
 2. On-ramp design
 - [x] **Teach the on-ramp through the week-1 image model** (decided 2026-10-24). The 377 notebooks are optional reference only. See the 19_1 TODO.

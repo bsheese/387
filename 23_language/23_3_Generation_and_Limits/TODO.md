@@ -5,7 +5,7 @@
 Decided: text generation (sampling, temperature) goes next to the LLM-limits session. Exams test it by reading and reasoning only.
 
 ## Notebooks
-- [ ] `23_3_1_Text_Generation.ipynb`: GPT-2 (small) next-token probabilities; greedy vs. sampling; temperature and top-k; the next-token loss is cross-entropy again (callback to 19_1_4 and 21_0_1)
+- [ ] `23_3_1_Text_Generation.ipynb` (GPT-2 runs fine live on either runtime: on the CPU it loads in about 15 s and makes 5 samples of 50 tokens in 13.2 s; on the T4, 0.7 s): GPT-2 (small) next-token probabilities; greedy vs. sampling; temperature and top-k; the next-token loss is cross-entropy again (callback to 19_1_4 and 21_0_1)
 - [ ] `23_3_2_What_LLMs_Get_Wrong.ipynb`: hallucination, prompt sensitivity, evaluating outputs against a reference, data/leakage concerns
 - [ ] `23_3_outline.md`, `23_3_glossary.md`
 
