@@ -188,13 +188,29 @@ These are no longer exam topics: thresholds and costs, weight decay, learning-ra
 | E3 | Keep the Pets course copy frozen? | **Decided 2026-11-15: frozen.** The four `pets4_*` files in `data/` and the saved outputs of 19_0_1 and 19_0_2 stay as they are, and 19_0 is not re-run on Colab. Any future code change to 19_0 is re-run on the laptop CPU with the local venv, which reproduces the course copy exactly. If the copy is ever regenerated, every Pets number in 19_0_2, 19_1, 20_0_1, 22_1_1, 22_1_2, the walkthrough pages and the unit 19 exam must be re-checked, as on 2026-11-03. |
 Decided: E1 (required reading), E2 (roles, settled in version 5), E4 (a fresh demo app, built much later, not decks in `interactive/`), E5 (walkthrough pages follow the 125 class-day naming convention, for example "To Do: Topic 19.2, Confusion Matrix"; like the 125 prep pages, each lists the notebook to read and the demo steps, with no day references and no Logistics section).
 
-## Step A: before any notebook or demo is built (now to mid-December)
+## Step A: before any notebook or demo is built (done 2026-11-15, except one item)
 
-1. **Calendar.** Done 2026-11-15: 28 meetings, the layout above. Still to confirm: the unit 23 exam's slot in the spring final exam schedule.
-2. **`tools/check_core.py`.** It reads a CSV of each class's Pair sections and prints the Pair words, the Pair code cells and the notebook's total words. The total is the student's pre-class reading.
-3. **Five seeds for the claims that remain.** These are dropout against no regularization, ten times the data, and the CNN against the MLP once batch norm is removed from the CNN. Run each over five seeds outside the notebooks, which takes a few minutes. Keep a sentence's wording only if the result holds in all five.
-4. **CNN without batch norm.** As part of item 3, confirm that 22_0_2's CNN without batch norm still clearly beats the MLP and still shows the shift-test result. If it doesn't, keep batch norm with a one-sentence explanation.
-5. **A Colab-matched venv** for all number checks.
+1. **Calendar.** Done: 28 meetings, the layout above. Still to confirm: the unit 23 exam's slot in the spring final exam schedule.
+2. **`tools/check_core.py`.** Done. It reads `tools/core_paths.csv` (each class's notebook and Pair sections) and prints the Pair words, the Pair code cells, the notebook's total words (the student's pre-class reading) and the question counts, with flags against the limits. Until step B the CSV points at the current notebooks, so the counts are before the cuts; step B updates the CSV to the new files and section numbers. The first run shows two things for step D:
+   - 19_0_1's Pair path is 2,294 words and 12 cells today, against the plan's 1,250 after trims. Day 1 needs the S2 and S4 trims in full.
+   - Pre-class reading runs from about 1,500 to 3,300 words a class before the cuts.
+
+   Most classes are over the 7-cell guide, which is expected, since 387 cells are short.
+3. **Five seeds.** Done with `tools/seed_check.py` (CPU, local venv, about 14 minutes); raw numbers in `tools/seed_check_results.json`. It used the revised recipe: plain Adam at 0.001, and for 22_0_2 the weights from the best validation epoch.
+
+   | Claim (old numbering) | Five-seed result | Verdict |
+   |---|---|---|
+   | 21_1_1: dropout makes the validation loss end well below no regularization | Final validation loss lower by 0.30 to 0.35 in every seed (1.07 against 0.73 on average) | Holds |
+   | 21_1_1: dropout improves validation accuracy a little | Best validation accuracy higher by 0.0 to 0.8 points; final validation accuracy is slightly lower on average (0.804 against 0.810) | Reword: accuracy is about the same, and the clear effect is on the loss |
+   | 21_1_1: ten times the data raises validation accuracy by several points, far more than dropout | Best validation accuracy higher by 4.8 to 6.1 points in every seed (0.869 against 0.814) | Holds |
+   | 22_0_2: the CNN beats the MLP | CNN without batch norm 0.885 test accuracy on average (0.883 to 0.887), MLP 0.861 (0.856 to 0.868); the CNN is ahead by 1.5 to 3.1 points in every seed | Holds; the text should call it a gain of about 2 to 3 points |
+   | 22_0_2: shifting images hurts the MLP far more than the CNN | At 2 pixels the MLP loses 33 to 36 points and the CNN without batch norm 9 to 13, in every seed | Holds |
+
+   The revised recipe gives lower numbers than the current text quotes (the MLP 0.861 against 0.869, the CNN 0.885 against 0.897), so the quoted figures change when the notebooks are re-run in step D.
+4. **CNN without batch norm.** Done as part of item 3. Batch norm made almost no difference to test accuracy (0.886 with it, 0.885 without), and the CNN without it still clearly beats the MLP and passes the shift test. Batch norm is cut from 22_0_2 and 22_1_2 as planned.
+5. **A Colab-matched venv.** Done: `venv-colab/` (ignored by git), Python 3.13.2 with torch 2.11, torchvision 0.26, numpy 2.4, pandas 2.2, scikit-learn 1.6, transformers 5.22 and diffusers 0.42, the versions the October and November Colab runs reported. The full list is in `tools/requirements-colab.txt`. Run checks with `venv-colab/bin/python smoke_test.py ...`; its own kernel is used, and the script's venv warning can be ignored. Twelve notebooks pass in it so far (19_1, 20_0, 22_0_1, 23_0, 23_1, 23_2_1). Colab's versions will move by January, so the venv is rebuilt then from a fresh Colab run of `tools/colab_check.ipynb`.
+
+   The local venv's full `pip freeze` is saved as `tools/venv_freeze_pets_copy.txt`, so the frozen Pets copy can still be reproduced after `requirements.txt` is re-pinned.
 
 ## Step B: restructure the repo (one sitting, before any unit is edited)
 

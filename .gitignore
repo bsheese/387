@@ -222,3 +222,6 @@ _site/
 # POGIL answer sheets: instructor-only, repo is public
 *answer_sheet*
 *_critique.md
+
+# Colab-matched venv for number checks (REVISION_PLAN.md step A5)
+venv-colab/
