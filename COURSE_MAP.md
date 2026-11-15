@@ -18,7 +18,7 @@ given in class; the unit 23 exam is given in the final exam period. There is no 
 
 **Grade weights:** exams 80% (5 × 16%), pair activities 20%, practice quizzes 0% (ungraded).
 
-**No take-home work** (decided 2026-10-24). Everything students must do happens in class. Readings, videos and practice quizzes are optional.
+**Required reading, no graded take-home work** (decided 2026-10-24, revised 2026-11-15). Before each class that has a pair activity, students read that class's notebook. A reading check at the start of class checks that they did the reading. Nothing graded is done outside class: the reading check, the pair activity and the exams all happen in class. Videos, the cs377 reference notebooks and practice quizzes are optional.
 
 **Runtime rule for class time:** in-class pair activities can't contain cells
 that take a long time on free Colab. A 30-minute training cell is far too

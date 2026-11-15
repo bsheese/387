@@ -1,6 +1,6 @@
 # 387 — repo-wide TODO
 
-Target: first offering of the redesign in **Spring 2027** (Tuesday/Thursday, 70 min, same as 377). Exams: five, one after each unit; units 19–22 in class (one class day each), unit 23 in the final exam period. Weights: exams 80 (5 × 16%), pairs 20, practice quizzes 0. No final project (cut 2026-10-24). No take-home work (decided 2026-10-24): readings, videos and practice quizzes are optional.
+Target: first offering of the redesign in **Spring 2027** (Tuesday/Thursday, 70 min, same as 377). Exams: five, one after each unit; units 19–22 in class (one class day each), unit 23 in the final exam period. Weights: exams 80 (5 × 16%), pairs 20, practice quizzes 0. No final project (cut 2026-10-24). No graded take-home work (decided 2026-10-24, revised 2026-11-15): the day's notebook is required reading before each class with a pair activity, and an in-class reading check checks it; videos and practice quizzes are optional.
 Plan: `PROPOSAL.md`. Map: `COURSE_MAP.md`. Module-level tasks are in each module's `TODO.md`.
 
 Note: `TODO.md` files are tracked in git (removed from `.gitignore` on 2026-10-24).
@@ -16,12 +16,12 @@ Note: `TODO.md` files are tracked in git (removed from `.gitignore` on 2026-10-2
 Suggested order: schedule (1, 3) → on-ramp (2) → the rest.
 
 1. Schedule and scope
-- [ ] **Fit content to 26 teaching days** (about 35 notebooks planned; about 1 notebook per class is realistic). Choose which notebooks become readings and which topics get cut. **Unit 21 decided 2026-10-25: 3 notebooks in 3 days (see below); the freed day went to unit 23.** With no take-home work, "becomes a reading" means optional material or class time, not homework. Candidates:
+- [ ] **Fit content to 26 teaching days** (about 35 notebooks planned; about 1 notebook per class is realistic). Choose which notebooks become readings and which topics get cut. **Unit 21 decided 2026-10-25: 3 notebooks in 3 days (see below); the freed day went to unit 23.** With no graded take-home work, "becomes a reading" means optional material or class time, not homework. (Since 2026-11-15 the class notebook itself is required reading before class.) Candidates:
   - [x] Batch norm moves to 22_0 (21_1_1 explains only its train/eval behavior)
   - [x] Checkpointing: folded into 21_1_2 (early stopping with a checkpoint)
   - [x] Multiclass: folded into 21_0_1 (Fashion-MNIST is 10-class from the start)
   - [x] LR schedules: one cosine section in 21_1_2
-  - [x] Exercises 21_0_9 and 21_1_9 cut (no take-home work; their job goes to pair activities)
+  - [x] Exercises 21_0_9 and 21_1_9 cut (no graded take-home work; their job goes to pair activities)
   - [x] Breast cancer dropped from the course (5 datasets + XOR)
 - [x] 19_0 gets 2 days (decided 2026-10-24)
 - [ ] Test DistilBERT fine-tuning and the diffusion demo on free Colab in December, before writing units 22–23
@@ -47,7 +47,7 @@ Suggested order: schedule (1, 3) → on-ramp (2) → the rest.
 - [x] ~~Project weight~~: the project is cut (decided 2026-10-24). See "Grade weights without the project" above.
 - [x] **Unit 19 exam:** keep as is, in class after unit 19 (decided 2026-10-24). Any head start for 377 graduates is acceptable; CS-route students often have their own advantages.
 - [x] ~~Project proposal timing~~: no project.
-- [x] ~~AI coding-assistant policy~~: not needed; there's no take-home work and exams are under lockdown (decided 2026-10-24).
+- [x] ~~AI coding-assistant policy~~: not needed; there's no graded take-home work and exams are under lockdown (decided 2026-10-24).
 
 5. Content gaps (find each a home)
 - [x] Logs and exponentials (before cross-entropy and softmax): $e^x$ in 19_1_3 (sigmoid) and 19_1_4 (softmax); the natural log in 19_1_4 (cross-entropy loss)

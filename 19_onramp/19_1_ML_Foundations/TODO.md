@@ -4,7 +4,7 @@
 
 Decided 2026-10-24: **teach the on-ramp through the week-1 image model.** Every session works on the Pets model from 19_0: its predictions, probabilities, training curves and cached features. Newcomers learn the ML basics on something they just built. 377 graduates recognize the ideas but see them on new material instead of redoing Titanic and penguins.
 
-The trimmed 377 notebooks are **not** class time. With no take-home work, they're optional reference for newcomers who want more (link the cs377 sources from each notebook's header).
+The trimmed 377 notebooks are **not** class time. Since the only required reading is each class's own notebook, they're optional reference for newcomers who want more (link the cs377 sources from each notebook's header).
 
 NumPy/pandas: no separate primer (it would have been pre-work). Teach the few NumPy operations each session needs inside that session (predictions as arrays, `argmax`, comparing arrays, counting). 377's 16_3 / 16_4_1 / 16_5 are optional reference.
 
