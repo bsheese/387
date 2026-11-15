@@ -346,6 +346,22 @@ When the app is built, its screens should use precomputed data exported from the
 - **Answer keys.** One key depends on library versions: 19_1_3's logistic regression gives z = 0.835 with scikit-learn 1.9 and 0.864 with Colab's 1.6, and the key accepts both. Colab's environment also prints an `OptimizeWarning` in 19_1_3, which may confuse students; check it on real Colab.
 - **Still to do:** step D5 (open each notebook in real Colab) and D6 (time the cells on Colab's CPU and a T4), which need a browser session. The laptop CPU times are below 5 s for every 19_1 notebook, and 78 s for 19_0_1's training cell.
 
+**Unit 20 is drafted, reviewed and posted** (2026-11-15).
+
+- **Built in parallel by three workers,** one per notebook. Each revised its notebook and wrote its activity and walkthrough, all assembled in `canvas/private/387_unit20/`.
+- **Notebook changes:**
+  - 20_0_1: the timing demo is cut.
+  - 20_0_2: the newer `fetch()` and reference fixes.
+  - 20_1_1: Sections 5 and 6 and the ResNet-18 tour are cut, and a passage on classes and a parameter-counting procedure are added.
+- **Exam and code list** are written. The blind review's eleven findings are fixed (see that folder's `BLIND_REVIEW.md`).
+- **Canvas.** Units 19 and 20 are posted to the Spring 2027 Canvas course (10614), unpublished and with dates:
+  - modules 49857 and 49858
+  - pair activities 88838 to 88844 and 88848 to 88850
+  - exams 88845 and 88851
+
+  Unit 19 sources are in `canvas/private/387_unit19/` and unit 20 sources in `canvas/private/387_unit20/`.
+- **Still to do by hand in Canvas:** LockDown on the two exams, publishing, and the reading checks.
+
 Each class produces:
 
 - the revised notebook
