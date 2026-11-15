@@ -10,7 +10,7 @@ every student takes 377 first: the prerequisite is CS/DASC 377, **or** CS 128
 (C- or above) plus CS/MATH 136. Unit 19's on-ramp covers the gap. No unit
 requires calculus.
 
-First offering of this design: **Spring 2027**, Tuesday/Thursday, 70 minutes
+First offering of this design: **Spring 2027**, Tuesday/Thursday, 9:25 to 10:40 (75 minutes)
 per class, the same as 377.
 
 **Exams:** five, one after each unit, each taking one class day. The exams for units 19–22 are
@@ -64,7 +64,7 @@ model) are not counted as datasets.
 | `22_images` | `22_0_Convolution_and_CNNs`, `22_1_Transfer_Learning`, `22_2_Autoencoders_and_Diffusion` | Convolution by hand, CNNs (MLP → CNN on the same Fashion-MNIST), batch norm, augmentation, transfer learning, what CNNs get wrong (shortcuts, shift, adversarial examples, bias); autoencoder denoising, diffusion as "denoising, repeated" | Fashion-MNIST, Pets | 21 | 22_0 and 22_1 drafted 2026-10-25; 22_2 drafted 2026-11-03 |
 | `23_language` | `23_0_Tokens_and_Embeddings`, `23_1_Attention`, `23_2_Pretrained_Transformers`, `23_3_Generation_and_Limits` | Tokens, embeddings, attention, fine-tuning DistilBERT, sampling and temperature, what LLMs can't do | IMDB (`data/imdb_reviews.csv`) | 21, 22_1 (transfer learning) | 23_0 and 23_1 drafted 2026-10-25; 23_2 and 23_3 drafted 2026-11-03 |
 
-**Session budget** (draft; check against the Spring 2027 calendar). 15 weeks ×
+**Session budget** (out of date: the Spring 2027 calendar has 28 meetings, not 30, checked 2026-11-15; `REVISION_PLAN.md` has the new layout, and this table is replaced in its step B). 15 weeks ×
 2 = 30 class days. The exams for units 19–22 each take a class day right after
 the unit; the unit 23 exam is in the final exam period. The four days that went
 to projects now go one each to units 20–23.

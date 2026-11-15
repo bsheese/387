@@ -1,8 +1,13 @@
-# 387 Revision Plan (version 6)
+# 387 Revision Plan (version 7)
 
-Plan for revising the 387 notebooks before and during Spring 2027. This version replaces version 5 (2026-11-15). The reviews behind it are `CONTENT_CRITIQUE.md` and `REVISION_PLAN_critique.md`. Nothing in this plan has been carried out.
+Plan for revising the 387 notebooks before and during Spring 2027. This version replaces version 6 (2026-11-15). The reviews behind it are `CONTENT_CRITIQUE.md` and `REVISION_PLAN_critique.md`. Nothing in this plan has been carried out.
 
 ## What changed in this version
+
+Version 7 (2026-11-15):
+
+- **The Spring 2027 calendar is checked.** 387 meets Tuesday and Thursday, 9:25 to 10:40 (75 minutes). The term has 28 class meetings, not the 30 the earlier versions assumed: classes begin Wednesday, Jan 6; spring recess removes Mar 9 and Mar 11; the last class meeting is Tuesday, Apr 20; final exams run Apr 23 to 28. To fit 28 meetings, the course keeps one review day instead of three, placed before the unit 22 exam (option 1, decided). Dates are now in the course table and the load table.
+- **Classes are 75 minutes, not 70.** The Fall 2026 377 activities also ran in a 75-minute window, so the 377 figures carry over directly, and the default rises to 6 required questions from unit 20 on.
 
 Version 6 (2026-11-15):
 
@@ -24,7 +29,7 @@ Earlier decisions that still stand:
 - 22_2 moves to `extras/`.
 - The notebooks are renumbered with no gaps.
 - Each class notebook is required reading before class, and nothing graded is done outside class.
-- The review days are yours to plan.
+- The review day is yours to plan.
 - Seaborn conversion is postponed.
 - There is no student timing test; the time budget comes from the 377 data.
 
@@ -56,6 +61,7 @@ The two 16-question activities show what happens with more questions. In Ridge a
 **Limits of the comparison.**
 
 - The samples are small: 26 pairs.
+- The 377 class window was the same 75 minutes as 387's (the activities unlocked at class start and were due 75 minutes later), with a reading check at the start, so the time per question carries over without adjustment.
 - 377 students were further along than many 387 students will be.
 - The 377 questions came from separate pair notebooks; the 387 questions will come from the course notebook itself.
 
@@ -63,16 +69,18 @@ The first classes of the term will confirm or correct the figure (see Checks).
 
 ## The 387 time budget
 
-A 70-minute class has two parts:
+A 75-minute class (Tuesday and Thursday, 9:25 to 10:40) has two parts:
 
 | Part | Minutes |
 |---|---|
 | Reading check, on paper, handed out as class starts | 3 |
-| Pair activity, including opening the notebook and submitting | 67 |
+| Pair activity, including opening the notebook and submitting | 72 |
 
-At 12 minutes per question, 67 minutes allows 5 required questions, with about 7 minutes to spare for a slow start. So every class except the first has **5 required questions and 2 extra credit**.
+At 12 minutes per question, 72 minutes allows 6 required questions, which is exactly what four in five 377 pairs finished in the same window. The plan uses:
 
-The first class has no reading check and no pre-class demo, because nothing can be assigned before it, and it includes the course introduction and Colab setup. It gets 3 required questions and 2 extra credit.
+- **Unit 19: 5 required and 2 extra credit.** These are the first weeks of a new format, and many students are new to machine learning, so unit 19 keeps about 12 minutes of margin.
+- **Units 20 to 23: 6 required and 2 extra credit by default,** confirmed or reduced to 5 by the measurement of the first six classes (see Checks).
+- **The first class: 4 required and 2 extra credit.** It has no reading check and no pre-class demo, because nothing can be assigned before it, and it includes the course introduction and Colab setup.
 
 Two further limits come from the 377 activities:
 
@@ -91,43 +99,48 @@ Before each class, a student reads the whole notebook and does the demo. After t
 
 ## The course after the cuts
 
-The "Class" column counts teaching days only. The load table further down counts every class meeting, exams included.
+Every class meeting, with its date. Meetings 1 to 17 come before spring recess and 18 to 28 after it.
 
-| Unit | Class | Notebook (new numbering) | Pre-class demo | Comes from |
-|---|---|---|---|---|
-| 19 | 1 | 19_0_1 Your First Image Model | none (first day) | unchanged |
-| | 2 | 19_0_2 What Just Happened | Colab walkthrough (19_0) | unchanged |
-| | 3 | 19_1_1 Is It Any Good | Colab walkthrough (19_1, part 1) | trimmed |
-| | 4 | 19_1_2 Confusion Matrix | Colab walkthrough (19_1, part 2) | trimmed |
-| | 5 | 19_1_3 One Neuron | Colab walkthrough (19_1, part 3) | unchanged |
-| | 6 | 19_1_4 Softmax and the Loss | Colab walkthrough (19_1, part 4) | first half of old 19_1_4 |
-| | 7 | 19_1_5 What One Neuron Can't Do | Colab walkthrough (19_1, part 5) | second half of old 19_1_4 |
-| | exam | Unit 19 exam | | |
-| 20 | 8 | 20_0_1 The Nudge Test and Autograd | Colab walkthrough (20_0, part 1) | old 20_0_2, plus tensor basics from old 20_0_1 |
-| | 9 | 20_0_2 Gradient Descent | Colab walkthrough (20_0, part 2) | old 20_0_3 |
-| | 10 | 20_1_1 Building a Network | TensorFlow Playground | trimmed |
-| | 11 | Review | yours | new |
-| | exam | Unit 20 exam | | |
-| 21 | 12 | 21_0_1 The Training Loop | Colab walkthrough (21_0) | trimmed |
-| | 13 | 21_1_1 Overfitting | Colab walkthrough (21_1) | old 21_1_1 plus early stopping from old 21_1_2 |
-| | 14 | Review | yours | new |
-| | exam | Unit 21 exam | | |
-| 22 | 15 | 22_0_1 Convolution by Hand | CNN Explainer | trimmed |
-| | 16 | 22_0_2 A Convolutional Network | Colab walkthrough (22_0) | trimmed |
-| | 17 | 22_1_1 Transfer Learning | Colab walkthrough (22_1, part 1) | trimmed |
-| | 18 | 22_1_2 What Image Models Get Wrong | Colab walkthrough (22_1, part 2) | trimmed |
-| | 19 | Review | yours | new |
-| | exam | Unit 22 exam | | |
-| 23 | 20 | 23_0_1 Tokens | Colab walkthrough (23_0, part 1) | trimmed, with a new opening |
-| | 21 | 23_0_2 Embeddings | Colab walkthrough (23_0, part 2) | trimmed |
-| | 22 | 23_1_1 Attention | Transformer Explainer | trimmed |
-| | 23 | 23_2_1 Using Pretrained Models | Colab walkthrough (23_2, part 1) | trimmed |
-| | 24 | 23_2_2 Fine-Tuning DistilBERT | Colab walkthrough (23_2, part 2) | trimmed |
-| | 25 | 23_3_1 Generating Text | Colab walkthrough (23_3, part 1) | trimmed |
-| | 26 | 23_3_2 What Language Models Get Wrong | Colab walkthrough (23_3, part 2) | trimmed |
-| | final exam period | Unit 23 exam | | |
+| Unit | Meeting | Date | Notebook (new numbering) or event | Pre-class demo | Comes from |
+|---|---|---|---|---|---|
+| 19 | 1 | Thu Jan 7 | 19_0_1 Your First Image Model | none (first day) | unchanged |
+| | 2 | Tue Jan 12 | 19_0_2 What Just Happened | Colab walkthrough (19_0) | unchanged |
+| | 3 | Thu Jan 14 | 19_1_1 Is It Any Good | Colab walkthrough (19_1, part 1) | trimmed |
+| | 4 | Tue Jan 19 | 19_1_2 Confusion Matrix | Colab walkthrough (19_1, part 2) | trimmed |
+| | 5 | Thu Jan 21 | 19_1_3 One Neuron | Colab walkthrough (19_1, part 3) | unchanged |
+| | 6 | Tue Jan 26 | 19_1_4 Softmax and the Loss | Colab walkthrough (19_1, part 4) | first half of old 19_1_4 |
+| | 7 | Thu Jan 28 | 19_1_5 What One Neuron Can't Do | Colab walkthrough (19_1, part 5) | second half of old 19_1_4 |
+| | 8 | Tue Feb 2 | Unit 19 exam | | |
+| 20 | 9 | Thu Feb 4 | 20_0_1 The Nudge Test and Autograd | Colab walkthrough (20_0, part 1) | old 20_0_2, plus tensor basics from old 20_0_1 |
+| | 10 | Tue Feb 9 | 20_0_2 Gradient Descent | Colab walkthrough (20_0, part 2) | old 20_0_3 |
+| | 11 | Thu Feb 11 | 20_1_1 Building a Network | TensorFlow Playground | trimmed |
+| | 12 | Tue Feb 16 | Unit 20 exam | | |
+| 21 | 13 | Thu Feb 18 | 21_0_1 The Training Loop | Colab walkthrough (21_0) | trimmed |
+| | 14 | Tue Feb 23 | 21_1_1 Overfitting | Colab walkthrough (21_1) | old 21_1_1 plus early stopping from old 21_1_2 |
+| | 15 | Thu Feb 25 | Unit 21 exam | | |
+| 22 | 16 | Tue Mar 2 | 22_0_1 Convolution by Hand | CNN Explainer | trimmed |
+| | 17 | Thu Mar 4 | 22_0_2 A Convolutional Network | Colab walkthrough (22_0) | trimmed |
+| | | Mar 5 to 15 | Spring recess | | |
+| | 18 | Tue Mar 16 | 22_1_1 Transfer Learning | Colab walkthrough (22_1, part 1) | trimmed |
+| | 19 | Thu Mar 18 | 22_1_2 What Image Models Get Wrong | Colab walkthrough (22_1, part 2) | trimmed |
+| | 20 | Tue Mar 23 | Review | yours | new |
+| | 21 | Thu Mar 25 | Unit 22 exam | | |
+| 23 | 22 | Tue Mar 30 | 23_0_1 Tokens | Colab walkthrough (23_0, part 1) | trimmed, with a new opening |
+| | 23 | Thu Apr 1 | 23_0_2 Embeddings | Colab walkthrough (23_0, part 2) | trimmed |
+| | 24 | Tue Apr 6 | 23_1_1 Attention | Transformer Explainer | trimmed |
+| | 25 | Thu Apr 8 | 23_2_1 Using Pretrained Models | Colab walkthrough (23_2, part 1) | trimmed |
+| | 26 | Tue Apr 13 | 23_2_2 Fine-Tuning DistilBERT | Colab walkthrough (23_2, part 2) | trimmed |
+| | 27 | Thu Apr 15 | 23_3_1 Generating Text | Colab walkthrough (23_3, part 1) | trimmed |
+| | 28 | Tue Apr 20 | 23_3_2 What Language Models Get Wrong | Colab walkthrough (23_3, part 2) | trimmed |
+| | | Apr 23 to 28 | Unit 23 exam, in its final-exam slot (to be confirmed from the registrar's spring exam schedule) | | |
 
-That is 26 teaching days (23 notebooks and 3 review days) and 4 in-class exam days, the same totals as `COURSE_MAP.md`. These totals still have to be checked against the Spring 2027 calendar.
+That is 23 notebook days, 1 review day and 4 in-class exams, which fills the 28 meetings. `COURSE_MAP.md`'s session budget (26 teaching days and 4 exams) is updated in step B.
+
+Notes on the layout:
+
+- Spring recess falls inside unit 22, between 22_0_2 and 22_1_1. The review day comes after the break, just before the unit 22 exam.
+- Units 20 and 21 have no review day, so their exams follow straight after their last notebook.
+- Activity times for Canvas (unlock at class start, due at class end, lock 5 minutes later) are 15:25 to 16:40 UTC through Mar 11, and 14:25 to 15:40 UTC from Mar 16, after daylight saving time starts on Mar 14.
 
 There are 22 pre-class demos. Three are walkthroughs of existing browser explainers (TensorFlow Playground, CNN Explainer and Transformer Explainer). The other 19 are, for now, Colab walkthroughs: the Canvas page has students run and change specific cells of the notebook they have just read. They become screens of the new demo app when it is built. The "Pre-class demo" column names the module each demo belongs to, which is how the new app might group them; that grouping is for the app's design to settle.
 
@@ -177,7 +190,7 @@ Decided: E1 (required reading), E2 (roles, settled in version 5), E4 (a fresh de
 
 ## Step A: before any notebook or demo is built (now to mid-December)
 
-1. **Calendar.** Check the real number of class days in Spring 2027 and where spring break falls, before any week number below is relied on.
+1. **Calendar.** Done 2026-11-15: 28 meetings, the layout above. Still to confirm: the unit 23 exam's slot in the spring final exam schedule.
 2. **`tools/check_core.py`.** It reads a CSV of each class's Pair sections and prints the Pair words, the Pair code cells and the notebook's total words. The total is the student's pre-class reading.
 3. **Five seeds for the claims that remain.** These are dropout against no regularization, ten times the data, and the CNN against the MLP once batch norm is removed from the CNN. Run each over five seeds outside the notebooks, which takes a few minutes. Keep a sentence's wording only if the result holds in all five.
 4. **CNN without batch norm.** As part of item 3, confirm that 22_0_2's CNN without batch norm still clearly beats the MLP and still shows the shift-test result. If it doesn't, keep batch norm with a one-sentence explanation.
@@ -216,29 +229,29 @@ The "Pre-class demo" column says what the demo lets a student do. Every item in 
 
 | Class | Pre-class demo | Pair sections | Pair words / cells | Required + EC | Other changes |
 |---|---|---|---|---|---|
-| 19_0_1 | none | S1 to S5, with S3 led by you | 1,250 / 9 | 3 + 2 | Trim S2 to about 350 words and S4 to about 550. CPU pairs use `USE_COURSE_COPY`. |
+| 19_0_1 | none | S1 to S5, with S3 led by you | 1,250 / 9 | 4 + 2 | Trim S2 to about 350 words and S4 to about 550. CPU pairs use `USE_COURSE_COPY`. |
 | 19_0_2 | Browse the test photos with predicted breed and confidence; filter to mistakes; sort by confidence | S3 to S6, S9 | 980 / 6 | 5 + 2 | Trim S6 and S9. Fix the diffusion row. |
 | 19_1_1 | Train and validation accuracy against epochs from the saved 300-epoch run; the model against the always-guess baseline | S1, S2, S3, short S5 | 980 / 9 | 5 + 2 | |
 | 19_1_2 | Click a cell of the confusion matrix to see its photos; precision and recall for a chosen breed; a slider for the number of Ragdolls in the shelter set | S1, S2, S3 | 970 / 9 | 5 + 2 | |
 | 19_1_3 | Drag three weights and a bias and watch the weighted sum and sigmoid; a shape-matching widget for `@` | S1, S2, S3 | 810 / 10 | 5 + 2 | Decode the NumPy shape error. One sentence on 1.000 training accuracy against 0.850 test. |
 | 19_1_4 | Drag four scores and watch softmax and the loss for the true breed | S1, S2 | 710 / 8 | 5 + 2 | Loss cell: a loop over five photos first. |
 | 19_1_5 | Drag a line over the four XOR points and count the points right; switch to the hidden-layer view | new opening, S3, S4 | 840 / 7 | 5 + 2 | |
-| 20_0_1 | Nudge a point on a curve and watch the slope; two linked sliders for rates multiplying | S1, S2, S3, S5 | 1,000 / 11 | 5 + 2 | Calculus boxes stay. |
-| 20_0_2 | Step gradient descent down the penguin loss bowl; a learning-rate slider showing too small, about right and diverging | S1 to S6 | 920 / 8 | 5 + 2 | |
-| 20_1_1 | TensorFlow Playground: the circle data with no hidden layer and then with one; ReLU; the learning rate. The walkthrough skips the regularization controls. | S2, S3, S4 | 940 / 10 | 5 + 2 | Classes passage; parameter counting. |
-| 21_0_1 | One training step as a sequence (batch, loss, slopes, update); the saved loss curves; the starting loss against −log(1/10) | S2, S3, S4, S6 | 700 / 8 | 5 + 2 | |
-| 21_1_1 | Choose 1,000 or 10,000 images and dropout on or off, from saved training histories; mark the best epoch | S1, S2, S3, S5, early stopping, checklist | 1,200 / 8 | 5 + 2 | Reword according to the five-seed result. |
-| 22_0_1 | CNN Explainer: one 3×3 filter over a patch, ReLU, max pooling. The walkthrough skips the stride and hyperparameter views. | S1, S2, S4, S5, S6 | 990 / 9 | 5 + 2 | |
-| 22_0_2 | Choose a filter and slide it over a Fashion-MNIST image; the shift-test accuracies for the MLP and the CNN | S1, S2, S3, S4, S6 | 780 / 6 | 5 + 2 | GPU rule. Re-run. |
-| 22_1_1 | ResNet's shape path layer by layer; the three test accuracies (from scratch, feature extraction, fine-tuning) | S1 to S5 | 1,080 / 7 | 5 + 2 | Fix "90%". GPU rule. Re-run. |
-| 22_1_2 | Toggle the planted marker and see the accuracy; the Pets accuracy under each photo change; the Gender Shades error rates by group | S1, S2, S4 | 930 / 3 | 5 + 2 | Re-run. |
-| 23_0_1 | Choose a sentence and see its DistilBERT and GPT-2 tokens and IDs; padding and the attention mask for a batch | S2 to S7 | 1,000 / 6 | 5 + 2 | Explain the second tokenizer warning; fix the "23_1 shows how" reference. |
-| 23_0_2 | Choose a word and see its nearest neighbors; "bank" in three sentences, before and after DistilBERT | S2 without PCA, S3, S4 | 850 / 6 | 5 + 2 | Mention the `269` neighbor; fix the closing sentence that promises a comparison 23_2 doesn't make. |
-| 23_1_1 | Transformer Explainer: attention weights for a typed sentence and the next-token probabilities. The walkthrough skips the query, key and value views. | S1, S2, learned-comparison paragraph, cost of long texts, S7 | 840 / 7 | 5 + 2 | Fix the `np.float64` printing. The learned-comparison paragraph names queries and keys in one sentence each, so the explainer's labels are not new words. |
-| 23_2_1 | Step a sentence through the pipeline (tokens, scores, softmax); the country-bias probabilities | S1, S3, S4 | 1,010 / 5 | 5 + 2 | |
-| 23_2_2 | The words with the largest TF-IDF weights; browse the fine-tuned model's mistakes from the saved probabilities | S1, S5, S6 | 970 / 4 | 5 + 2 | Save the test probabilities to `data/`. Pairs read S2 to S4 from the saved outputs before class. |
-| 23_3_1 | A temperature slider and a top-k slider on GPT-2's next-token probabilities for the notebook's prompt | S1, S3, S4, S5 | 950 / 5 | 5 + 2 | Self-supervised and causal-mask sentences. Re-run on Colab's CPU. |
-| 23_3_2 | The token probabilities of the real and the invented answers; the multiple-choice table in both option orders | S1 to S4, S6 | 1,130 / 5 | 5 + 2 | Re-run on Colab's CPU. |
+| 20_0_1 | Nudge a point on a curve and watch the slope; two linked sliders for rates multiplying | S1, S2, S3, S5 | 1,000 / 11 | 6 + 2 | Calculus boxes stay. |
+| 20_0_2 | Step gradient descent down the penguin loss bowl; a learning-rate slider showing too small, about right and diverging | S1 to S6 | 920 / 8 | 6 + 2 | |
+| 20_1_1 | TensorFlow Playground: the circle data with no hidden layer and then with one; ReLU; the learning rate. The walkthrough skips the regularization controls. | S2, S3, S4 | 940 / 10 | 6 + 2 | Classes passage; parameter counting. |
+| 21_0_1 | One training step as a sequence (batch, loss, slopes, update); the saved loss curves; the starting loss against −log(1/10) | S2, S3, S4, S6 | 700 / 8 | 6 + 2 | |
+| 21_1_1 | Choose 1,000 or 10,000 images and dropout on or off, from saved training histories; mark the best epoch | S1, S2, S3, S5, early stopping, checklist | 1,200 / 8 | 6 + 2 | Reword according to the five-seed result. |
+| 22_0_1 | CNN Explainer: one 3×3 filter over a patch, ReLU, max pooling. The walkthrough skips the stride and hyperparameter views. | S1, S2, S4, S5, S6 | 990 / 9 | 6 + 2 | |
+| 22_0_2 | Choose a filter and slide it over a Fashion-MNIST image; the shift-test accuracies for the MLP and the CNN | S1, S2, S3, S4, S6 | 780 / 6 | 6 + 2 | GPU rule. Re-run. |
+| 22_1_1 | ResNet's shape path layer by layer; the three test accuracies (from scratch, feature extraction, fine-tuning) | S1 to S5 | 1,080 / 7 | 6 + 2 | Fix "90%". GPU rule. Re-run. |
+| 22_1_2 | Toggle the planted marker and see the accuracy; the Pets accuracy under each photo change; the Gender Shades error rates by group | S1, S2, S4 | 930 / 3 | 6 + 2 | Re-run. |
+| 23_0_1 | Choose a sentence and see its DistilBERT and GPT-2 tokens and IDs; padding and the attention mask for a batch | S2 to S7 | 1,000 / 6 | 6 + 2 | Explain the second tokenizer warning; fix the "23_1 shows how" reference. |
+| 23_0_2 | Choose a word and see its nearest neighbors; "bank" in three sentences, before and after DistilBERT | S2 without PCA, S3, S4 | 850 / 6 | 6 + 2 | Mention the `269` neighbor; fix the closing sentence that promises a comparison 23_2 doesn't make. |
+| 23_1_1 | Transformer Explainer: attention weights for a typed sentence and the next-token probabilities. The walkthrough skips the query, key and value views. | S1, S2, learned-comparison paragraph, cost of long texts, S7 | 840 / 7 | 6 + 2 | Fix the `np.float64` printing. The learned-comparison paragraph names queries and keys in one sentence each, so the explainer's labels are not new words. |
+| 23_2_1 | Step a sentence through the pipeline (tokens, scores, softmax); the country-bias probabilities | S1, S3, S4 | 1,010 / 5 | 6 + 2 | |
+| 23_2_2 | The words with the largest TF-IDF weights; browse the fine-tuned model's mistakes from the saved probabilities | S1, S5, S6 | 970 / 4 | 6 + 2 | Save the test probabilities to `data/`. Pairs read S2 to S4 from the saved outputs before class. |
+| 23_3_1 | A temperature slider and a top-k slider on GPT-2's next-token probabilities for the notebook's prompt | S1, S3, S4, S5 | 950 / 5 | 6 + 2 | Self-supervised and causal-mask sentences. Re-run on Colab's CPU. |
+| 23_3_2 | The token probabilities of the real and the invented answers; the multiple-choice table in both option orders | S1 to S4, S6 | 1,130 / 5 | 6 + 2 | Re-run on Colab's CPU. |
 
 When the app is built, its screens should use precomputed data exported from the notebooks by small scripts in `public/387/tools/`, so a screen and its notebook cannot disagree, and none should run a model in the browser. A few Colab walkthroughs need a named setting the notebook doesn't expose yet (for example the number of Ragdolls in the 19_1_2 shelter set); adding it is part of that notebook's revision.
 
@@ -260,7 +273,7 @@ Each class produces:
 - the pair activity (required and extra-credit questions per the table, with a key)
 - the Canvas walkthrough page for the pre-class demo (Colab steps or an explainer)
 
-Each unit also produces its exam and one "code you should be able to read" list. Review days and reading checks are planned separately.
+Each unit also produces its exam and one "code you should be able to read" list. The review day and the reading checks are planned separately.
 
 For each unit:
 
@@ -290,19 +303,21 @@ Building it from the step C table, after the notebooks are settled, means its sc
 
 ## Load and dates
 
-Week numbers assume two classes a week, no break, and the day order above. They are redone after the calendar check. Each unit is finished two weeks before its first class.
+Each unit is finished two weeks before its first class.
 
 | Unit | First class | Due | Notebooks | Pair activities | Walkthrough pages (explainers among them) | Exam | Re-runs |
 |---|---|---|---|---|---|---|---|
-| 19 | day 1 | before term | 7 | 7 | 6 (0) | 1 | 0 |
-| 20 | day 9 (week 5) | end of week 3 | 3 | 3 | 3 (1) | 1 | 0 |
-| 21 | day 14 (week 7) | end of week 5 | 2 | 2 | 2 (0) | 1 | 0 |
-| 22 | day 18 (week 9) | end of week 7 | 4 | 4 | 4 (1) | 1 | 3 |
-| 23 | day 24 (week 12) | end of week 10 | 7 | 7 | 7 (1) | 1 | 3 |
+| 19 | Thu Jan 7 | before term (Jan 6) | 7 | 7 | 6 (0) | 1 | 0 |
+| 20 | Thu Feb 4 | Thu Jan 21 | 3 | 3 | 3 (1) | 1 | 0 |
+| 21 | Thu Feb 18 | Thu Feb 4 | 2 | 2 | 2 (0) | 1 | 0 |
+| 22 | Tue Mar 2 | Tue Feb 16 | 4 | 4 | 4 (1) | 1 | 3 |
+| 23 | Tue Mar 30 | Tue Mar 16 | 7 | 7 | 7 (1) | 1 | 3 |
+
+Units 20 to 22 are each built in about two weeks while the course is running (Jan 7 to 21, Jan 21 to Feb 4, Feb 4 to 16). Unit 23 has four weeks, including spring recess.
 
 **Before term:** steps A and B, plus all of unit 19: 7 notebooks, 7 activities, 6 walkthrough pages and the exam. This sits alongside the Canvas course shell, the syllabus and the unit 19 reading checks.
 
-**During weeks 1 to 10:** 16 notebooks, 16 activities, 16 walkthrough pages, 4 exams and 6 re-runs, about 6 pieces a week, plus the review days and the reading checks. A walkthrough page is small next to the other pieces, because its steps use cells the notebook already has.
+**From Jan 7 to Mar 16:** 16 notebooks, 16 activities, 16 walkthrough pages, 4 exams and 6 re-runs, about 6 pieces a week, plus the review day and the reading checks. A walkthrough page is small next to the other pieces, because its steps use cells the notebook already has.
 
 If the load can't be met, protect work in this order:
 
@@ -319,7 +334,7 @@ If the load can't be met, protect work in this order:
 | Corrections | A script with one pattern per row of the critique's error table, run over the `.ipynb` files only. |
 | Cuts complete | The step B reference search returns nothing; it is repeated after each unit. |
 | No new material in demos or activities | Step D8. Every walkthrough step names a notebook section, and a script checks that the section exists. |
-| Fit to the period | After each of the first six classes, the same figures as the 377 table are pulled from the Canvas report: minutes to submission, the share of pairs that finished the required questions, and the median last question. If fewer than about four in five finish, the units not yet built drop to 4 required questions. If nearly all pairs finish with time to spare, the extra-credit questions get larger. |
+| Fit to the period | After each of the first six classes (Jan 7 to Jan 26), the same figures as the 377 table are pulled from the Canvas report: minutes to submission, the share of pairs that finished the required questions, and the median last question. If about four in five pairs finish unit 19's 5 required questions with 10 minutes or more to spare, units 20 to 23 keep 6; otherwise they use 5. |
 | Pre-class work is done | Reading-check scores by class. If one class is consistently low, its notebook or demo is too long. |
 | Notebooks still run | Smoke test for the unit, with a filter. |
 | Exam matches what was assigned | Each exam question names the notebook section holding what it tests. Questions without one are removed. After the unit 19 exam, item results are split by newcomers and 377 graduates. |
@@ -336,8 +351,8 @@ If the load can't be met, protect work in this order:
 | 5. Only unit 19 opens with a working model | Resolved for unit 23 |
 | 6. Heaviest math | Resolved by cutting |
 | 7. Single-run comparisons | Resolved once the five-seed runs are done |
-| Schedule slack | Three review days. In unit 19, 19_1_4 and 19_1_5 can share a day if a class is lost. |
-| Debugging gap | Open. Shape errors appear in 19_1_3 and 20_0_1, and the review days are yours. |
+| Schedule slack | One review day, before the unit 22 exam. In unit 19, 19_1_4 and 19_1_5 can share a day if a class is lost; in unit 22 the review day absorbs a lost class. Units 20, 21 and 23 have no slack. |
+| Debugging gap | Open. Shape errors appear in 19_1_3 and 20_0_1, and the review day is yours. |
 | Self-supervised learning unnamed | Resolved in 23_3_1 |
 | Distance to current chatbots | Open (deferred) |
 | Saved outputs | Resolved for six notebooks. 19_0 is frozen, and 22_2 is unchanged in `extras/`. |
@@ -352,6 +367,16 @@ If the load can't be met, protect work in this order:
 - **The longer on-ramp.** Some 377 graduates will find the five on-ramp classes slow. Extra-credit questions are their only extension.
 - **Batch norm.** Cutting it from 22_0_2 changes its numbers. Step A4 checks this before the notebook is edited.
 - **Renumbering** touches every notebook and several documents at once, which is why step B ends with a badge and reference check.
+
+## What changed from version 6
+
+| Area | Version 6 | Version 7 |
+|---|---|---|
+| Class meetings | 30 assumed | 28, from the Spring 2027 calendar, with dates |
+| Review days | 3 | 1, before the unit 22 exam |
+| Class length | 70 minutes | 75 minutes (9:25 to 10:40) |
+| Required questions | 5 (first class 3) | Unit 19: 5; units 20 to 23: 6 by default; first class 4 |
+| Due dates | Week numbers | Calendar dates |
 
 ## What changed from version 5
 

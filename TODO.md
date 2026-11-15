@@ -1,13 +1,13 @@
 # 387 — repo-wide TODO
 
-Target: first offering of the redesign in **Spring 2027** (Tuesday/Thursday, 70 min, same as 377). Exams: five, one after each unit; units 19–22 in class (one class day each), unit 23 in the final exam period. Weights: exams 80 (5 × 16%), pairs 20, practice quizzes 0. No final project (cut 2026-10-24). No graded take-home work (decided 2026-10-24, revised 2026-11-15): the day's notebook is required reading before each class with a pair activity, and an in-class reading check checks it; videos and practice quizzes are optional.
+Target: first offering of the redesign in **Spring 2027** (Tuesday/Thursday 9:25 to 10:40, 75 min, the same length as 377). Exams: five, one after each unit; units 19–22 in class (one class day each), unit 23 in the final exam period. Weights: exams 80 (5 × 16%), pairs 20, practice quizzes 0. No final project (cut 2026-10-24). No graded take-home work (decided 2026-10-24, revised 2026-11-15): the day's notebook is required reading before each class with a pair activity, and an in-class reading check checks it; videos and practice quizzes are optional.
 Plan: `PROPOSAL.md`. Map: `COURSE_MAP.md`. Module-level tasks are in each module's `TODO.md`.
 
 Note: `TODO.md` files are tracked in git (removed from `.gitignore` on 2026-10-24).
 
 ## Decide
 - [x] **Grade weights** (decided 2026-10-24): exams 80 (5 × 16%), pair activities 20, practice quizzes 0.
-- [ ] **Check the session budget against the Spring 2027 calendar** (break week, holidays, actual class-day count). Draft in `COURSE_MAP.md`: 26 teaching days + 4 in-class exam days; the unit 23 exam is in the final exam period. Unit 19 has 6 teaching days (19_0 gets 2), so unit 23 drops to 6.
+- [x] **Check the session budget against the Spring 2027 calendar** (done 2026-11-15: 28 Tuesday/Thursday meetings, Jan 7 to Apr 20; spring recess removes Mar 9 and 11; finals Apr 23 to 28. Resolved by keeping one review day instead of three; the dated layout is in `REVISION_PLAN.md`. Still to confirm: the unit 23 exam's final-exam slot.) Original item: (break week, holidays, actual class-day count). Draft in `COURSE_MAP.md`: 26 teaching days + 4 in-class exam days; the unit 23 exam is in the final exam period. Unit 19 has 6 teaching days (19_0 gets 2), so unit 23 drops to 6.
 - [x] Unit 23 exam: in the final exam period (decided 2026-10-24); unit 23 gets 7 teaching days.
 - [ ] Proposal says "Units 21–24 need to be written". With the project cut and Fashion-MNIST moved, the writing list is: 19_0, 19_1 (trim + dataset swaps), 21_0_2 and 21_1 (move to Fashion-MNIST), 22, 23, plus the 20_0 math rewrite. Confirm.
 - [x] Ungraded practice quizzes (0%): no practice quiz notebooks (decided 2026-11-02; the stubs were deleted). Quiz site only, if any.
