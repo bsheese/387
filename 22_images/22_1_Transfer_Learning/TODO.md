@@ -2,6 +2,8 @@
 
 **Status:** drafted 2026-10-25 (two notebooks, both with saved outputs). **Days:** 2 of unit 22's 6. **Assumes:** 22_0, 19_0.
 
+**Note 2026-11-15:** 22_1_2 is now the last notebook of unit 22 (22_2 moved to `extras/`), and its "Next" line points to unit 23. Adversarial examples (22_1_2 Section 3) and batch norm in its small CNN are cut in step D.
+
 Purpose: open up the 19_0 black box, then show how image models fail.
 
 ## Notebooks

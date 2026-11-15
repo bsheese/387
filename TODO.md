@@ -26,7 +26,7 @@ Suggested order: schedule (1, 3) → on-ramp (2) → the rest.
 - [x] 19_0 gets 2 days (decided 2026-10-24)
 - [ ] Test DistilBERT fine-tuning and the diffusion demo on free Colab in December, before writing units 22–23
   - `tools/colab_check.ipynb` (built by `tools/make_colab_check.py`, 2026-10-25) does this: Colab versions, every course notebook through `smoke_test.py --remote-data`, DDPM CIFAR-10 / BK-SDM-Small / SD 1.5, DistilBERT on 2,000 IMDB reviews, the SST-2 pipeline, GPT-2. Run once on a T4 GPU and once on CPU; paste back the last cell. Repeat on the GPU in January 2027.
-  - [x] **T4 GPU run (2026-10-27):** all 20 course notebooks passed (603 s total; slowest cells 31–38 s: the 20_0_2 timing demo, the 22_1_1 Pets transforms, the 23_0_2 sentence-transformer download). DDPM CIFAR-10: 50 DDIM steps 2.1 s, 1,000 DDPM steps 29.8 s (4 images). BK-SDM-Small: load 53 s, 3.1 s per image, 2.7 GB. SD 1.5: load 128 s, 4.6 s per image, 3.4 GB. DistilBERT, 2,000 IMDB reviews, one epoch: 41 s, 86.3% on 1,000 test reviews. SST-2 pipeline with no training: 87.6% on 500 reviews in 14 s. GPT-2: 5 samples of 50 tokens in 0.7 s. Colab versions: Python 3.13, torch 2.11, numpy 2.1, pandas 2.2, scikit-learn 1.6, transformers 5.20, diffusers 0.42.
+  - [x] **T4 GPU run (2026-10-27):** all 20 course notebooks passed (603 s total; slowest cells 31–38 s: the 20_0_1 timing demo, the 22_1_1 Pets transforms, the 23_0_2 sentence-transformer download). DDPM CIFAR-10: 50 DDIM steps 2.1 s, 1,000 DDPM steps 29.8 s (4 images). BK-SDM-Small: load 53 s, 3.1 s per image, 2.7 GB. SD 1.5: load 128 s, 4.6 s per image, 3.4 GB. DistilBERT, 2,000 IMDB reviews, one epoch: 41 s, 86.3% on 1,000 test reviews. SST-2 pipeline with no training: 87.6% on 500 reviews in 14 s. GPT-2: 5 samples of 50 tokens in 0.7 s. Colab versions: Python 3.13, torch 2.11, numpy 2.1, pandas 2.2, scikit-learn 1.6, transformers 5.20, diffusers 0.42.
   - [x] CPU run (Runtime → Change runtime type → CPU), to size things for a pair that doesn't get a GPU. Done 2026-11-02 in five sessions; results are in the module TODOs. Only 22_0_2 and 22_1_1 are too slow on the CPU (see the GPU policy below).
     - The first all-at-once CPU attempt (late Oct) ran past an hour and stalled in the course-notebook part. Reworked 2026-11-02: model timings now come first, and the course notebooks run one or two units per session (`RUN_MODELS` / `CPU_UNITS` in the first cell; sessions A–E are listed in the notebook's intro).
     - Session A (models only) done 2026-11-02: the CPU numbers are in the 22_2, 23_2 and 23_3 TODOs. The CPU runtime had 2 vCPUs, 12 GB RAM, and torch used 1 thread. Its versions had moved since the T4 run: numpy 2.4 (was 2.1), transformers 5.22 (was 5.20).
@@ -59,8 +59,8 @@ Suggested order: schedule (1, 3) → on-ramp (2) → the rest.
 - [ ] Ethics: tie each unit's ethics item to a pair activity so it gets class time
 
 6. Small fixes
-- [x] Nudge test: use a central difference `(f(x+h) - f(x-h)) / 2h` (20_0_2)
-- [x] Motivate backprop with cost: nudging every weight means about 11M forward passes for ResNet-18 (20_0_2 Section 4, with a timing demo)
+- [x] Nudge test: use a central difference `(f(x+h) - f(x-h)) / 2h` (20_0_1)
+- [x] Motivate backprop with cost: nudging every weight means about 11M forward passes for ResNet-18 (20_0_1 Section 4, with a timing demo)
 - [ ] `PROPOSAL.md`: correct "about half the notebooks already exist" (about 13 exist, about 22 are new or trimmed) and the old unit numbers in the summary, or leave the snapshot as is
 
 ## Repo infrastructure (port from public/377)
@@ -80,7 +80,7 @@ Suggested order: schedule (1, 3) → on-ramp (2) → the rest.
 ## Cross-cutting content
 - [ ] **377 references.** The moved notebooks cite 377 notebooks that non-377 students have not seen (17_0_5, 18_1, 18_2_3, 18_5_x, 18_6). Point each one at its 19_1 on-ramp equivalent, or add a one-line recap. Per-file lists are in the 20_* and 21_* TODOs.
 - [ ] **Sub-unit references.** The bare IDs `19_0`, `19_1` and `20_1` in outlines, glossaries and quizzes were not renumbered automatically, because the old 19_1 is now split across 20_1 and 21_0. Fix them by hand (`grep -rnE '\b(19_0|19_1|20_1)\b'`).
-- [x] "If you've taken calculus" collapsible-box convention: `<details><summary><b>If you've taken calculus</b></summary> ... </details>` (first used in 20_0_2)
+- [x] "If you've taken calculus" collapsible-box convention: `<details><summary><b>If you've taken calculus</b></summary> ... </details>` (first used in 20_0_1)
 - [ ] Glossary per module (377 convention); one course-wide glossary?
 - [ ] Canvas: create `canvas/courses/387/terms/s27/` (doctor.py → dates.yaml, modules), one module per unit, 5 exams (units 19–22 in class; unit 23 in the final exam period), weekly pair-activity New Quizzes
 - [ ] Syllabus: prereqs (377, or CS 128 C- + CS/MATH 136), weights (exams 80 = 5 × 16%, pairs 20, practice quizzes 0), free materials list

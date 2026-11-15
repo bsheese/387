@@ -80,7 +80,7 @@ At 12 minutes per question, 72 minutes allows 6 required questions, which is exa
 
 - **Unit 19: 5 required and 2 extra credit.** These are the first weeks of a new format, and many students are new to machine learning, so unit 19 keeps about 12 minutes of margin.
 - **Units 20 to 23: 6 required and 2 extra credit by default,** confirmed or reduced to 5 by the measurement of the first six classes (see Checks).
-- **The first class: 4 required and 2 extra credit.** It has no reading check and no pre-class demo, because nothing can be assigned before it, and it includes the course introduction and Colab setup.
+- **The first class: 3 required and 2 extra credit.** It has no reading check and no pre-class demo, because nothing can be assigned before it, and it includes the course introduction and Colab setup. Its Pair path is also the largest in the course (1,910 words after trims), all of it read in class.
 
 Two further limits come from the 377 activities:
 
@@ -212,7 +212,50 @@ Decided: E1 (required reading), E2 (roles, settled in version 5), E4 (a fresh de
 
    The local venv's full `pip freeze` is saved as `tools/venv_freeze_pets_copy.txt`, so the frozen Pets copy can still be reproduced after `requirements.txt` is re-pinned.
 
-## Step B: restructure the repo (one sitting, before any unit is edited)
+## Step B: restructure the repo (done 2026-11-15)
+
+**What was done.**
+
+- **22_2 moved.** It is now in `extras/22_2_Autoencoders_and_Diffusion/`, with corrected badges, an optional-reading note at the top of each notebook, and `extras/README.md`. `smoke_test.py` skips `extras/`, and the two notebooks are out of `KEEP_OUTPUTS`.
+- **19_1_4 split.** `19_1_4_Softmax_and_the_Loss.ipynb` has Sections 1 and 2, a new introduction, a Summary and a "What's next" paragraph. The new `19_1_5_What_One_Neuron_Cant_Do.ipynb` has a new introduction and setup cell, XOR and the hidden layer as Sections 1 and 2, a Summary and a "What's next" pointing to unit 20.
+- **Tensors merged.** The tensor essentials are a "Before We Start: Tensors" section at the top of the autograd notebook: about 400 words and 4 cells covering making a tensor, shape and dtype, `.item()`, the batch dimension with `.unsqueeze(0)`, in-place methods, devices, `requires_grad` and `.detach()`. The old tensors notebook is deleted. References to it in 22_0_1 (color channels) and 23_1_1 (`.unsqueeze`) still hold, because the new 20_0_1 covers both.
+- **21_1_2 merged.** 21_1_1 gains Section 6, Early Stopping. It keeps the best weights in memory with a patience of 5 on the 1,000-image run, which stops at epoch 14 with the best weights from epoch 9: validation loss 0.578 against 0.979 at epoch 60, and accuracy 0.800 against 0.803. A shortened checklist follows, then a new Summary and a "What's next" pointing to unit 22. 21_1_2 is deleted. The counting errors in 21_1_1 ("fourth option", "fifth tool") are fixed in passing.
+- **Renumbered.** The autograd notebook is now `20_0_1_Autograd.ipynb` and gradient descent is `20_0_2_Gradient_Descent.ipynb`, using `tools/renumber_2026_11.py` over all notebooks, `COURSE_MAP.md` and the `TODO.md` files.
+  - The unit 20 titles were renumbered (Parts 1 to 3).
+  - References to XOR, the step function and the hidden layer now point to 19_1_5. References to softmax and the loss stay on 19_1_4.
+  - The script's first run also turned one file name into "20_0_1_Gradient_Descent"; that was corrected by hand.
+  - Outlines and glossaries were not renumbered, because they are rewritten in a later pass.
+- **Four broken references fixed:**
+  - the diffusion row of 19_0_2's history table
+  - 22_0_1's "Next" line, which no longer cites 21_1_2's 0.869
+  - 22_1_2's "Next" line, which now points to unit 23 and mentions `extras/`
+  - 21_1_1's mention of 21_1_2
+- **Documentation.** `COURSE_MAP.md` is rewritten for the new structure: the arc, datasets, units, the 28-meeting session budget, the concepts table, the ethics list, the rules on what is assigned and tested, and the maintenance notes. The 19_1, 20_0, 21_1, 22_0 and 22_1 TODOs have dated notes. `tools/core_paths.csv` points at the new files.
+
+Checks passed:
+
+- The smoke test passes for units 19 to 21 and 22_0_1, 13 notebooks in all.
+- The saved-output check passes.
+- All 26 Colab badges, including the two in `extras/`, point at their own files.
+
+**Hits left for step D.** These come from the reference search. Each is in a notebook whose step D row already covers it:
+
+| Notebook | What still mentions a removed notebook or topic |
+|---|---|
+| 19_1_2 | Section 4, thresholds and costs |
+| 21_0_1 | AdamW in its closing cell |
+| 21_1_1 | Section 4, weight decay (and its summary bullet); the batch-norm paragraph in Section 3 |
+| 22_0_1 | Stride and the output-size formula |
+| 22_0_2 | References to 21_1_2's recipe in 8 cells; the quoted 0.869 and 0.374; batch norm; AdamW and the cosine schedule; the in-memory checkpoint wording |
+| 22_1_1 | Residual connections; batch norm in the scratch CNN; AdamW and the cosine schedule in its training cells |
+| 22_1_2 | Section 3, adversarial examples; batch norm and AdamW in its small CNN |
+| 23_0_1 | "23_1 shows how" for the attention mask |
+| 23_1_1 | √d, masks, position embeddings and the transformer-layer anatomy; batch norm and residual connections mentioned in Section 6 |
+| 23_2_1 | Section 5, zero-shot classification |
+| 23_2_2 | AdamW in the fine-tuning loop (stays, as instructor-run reference); the `Trainer` paragraph in Section 7 mentions a schedule and checkpoints |
+| 23_3_1 | Top-p; the causal-mask sentence; the forward reference to 23_3_2's contamination check |
+| 23_3_2 | Section 5, contamination |
+
 
 1. Move 22_2 to `extras/`.
 2. Create 19_1_5 from Sections 3 and 4 of 19_1_4. Give it a new opening of about 150 words that recaps the neuron and softmax, and cut 19_1_4 down to Sections 1 and 2.
@@ -245,7 +288,7 @@ The "Pre-class demo" column says what the demo lets a student do. Every item in 
 
 | Class | Pre-class demo | Pair sections | Pair words / cells | Required + EC | Other changes |
 |---|---|---|---|---|---|
-| 19_0_1 | none | S1 to S5, with S3 led by you | 1,250 / 9 | 4 + 2 | Trim S2 to about 350 words and S4 to about 550. CPU pairs use `USE_COURSE_COPY`. |
+| 19_0_1 | none | S1 to S5, with S3 led by you | 1,910 / 12 after trims | 3 + 2 | Trim S2 to about 350 words and S4 to about 550. CPU pairs use `USE_COURSE_COPY`. |
 | 19_0_2 | Browse the test photos with predicted breed and confidence; filter to mistakes; sort by confidence | S3 to S6, S9 | 980 / 6 | 5 + 2 | Trim S6 and S9. Fix the diffusion row. |
 | 19_1_1 | Train and validation accuracy against epochs from the saved 300-epoch run; the model against the always-guess baseline | S1, S2, S3, short S5 | 980 / 9 | 5 + 2 | |
 | 19_1_2 | Click a cell of the confusion matrix to see its photos; precision and recall for a chosen breed; a slider for the number of Ragdolls in the shelter set | S1, S2, S3 | 970 / 9 | 5 + 2 | |
@@ -282,6 +325,26 @@ When the app is built, its screens should use precomputed data exported from the
 7. **Walkthrough pages** take 10 to 15 minutes to follow. Each says what to set, what to notice, and which notebook section explains it. They follow the student-facing rules: no day references, no time estimates, no Logistics section.
 
 ## Step D: build one unit at a time
+
+**Progress.** Unit 19 is drafted (2026-11-15), and a blind review is next.
+
+- **Notebooks.** The step C changes were made:
+  - 19_1_1: Baseline 3 and the 30-versions experiment are cut. Section 5 is now a short explanation of the three-way split, with its table.
+  - 19_1_2: Section 4 (thresholds) is cut, and `N_RAGDOLLS` is exposed for the walkthrough and the activity.
+  - 19_1_3: the two shape errors are decoded, the 1.000 against 0.850 gap is explained, and "9 times in 10" is corrected.
+  - 19_1_4: the sigmoid aside is cut, a five-photo loop comes before the one-line loss, and the average loss is interpreted.
+  - 19_0_1 and 19_0_2: text trims only, so the frozen outputs are untouched.
+  - All 19_1 notebooks: the newer `fetch()` and "What's next" paragraphs.
+
+  All 7 notebooks pass in the local venv and in `venv-colab/`, and the saved-output check passes.
+- **The rest of unit 19** is in `canvas/private/387_unit19/`, generated by `build.py`:
+  - seven pair activities and the unit 19 exam as New Quiz drafts in `drafts/`
+  - six walkthrough pages and the code-reading list in `pages/`
+
+  They wait there until the Canvas s27 term exists.
+- **Day 1 has 3 required questions, not 4.** Its Pair path is 1,910 words even after the trims, and nothing can be read before the first class.
+- **Answer keys.** One key depends on library versions: 19_1_3's logistic regression gives z = 0.835 with scikit-learn 1.9 and 0.864 with Colab's 1.6, and the key accepts both. Colab's environment also prints an `OptimizeWarning` in 19_1_3, which may confuse students; check it on real Colab.
+- **Still to do:** step D5 (open each notebook in real Colab) and D6 (time the cells on Colab's CPU and a T4), which need a browser session. The laptop CPU times are below 5 s for every 19_1 notebook, and 78 s for 19_0_1's training cell.
 
 Each class produces:
 

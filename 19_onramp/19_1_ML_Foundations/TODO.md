@@ -2,6 +2,8 @@
 
 **Status:** drafted 2026-10-25 (all four notebooks, outline, glossary), kept without saved outputs (every cell runs in seconds). Redesigned 2026-10-24. **Days:** 4. **Assumes:** 19_0, CS 128 (CS2) Python; pandas NOT guaranteed.
 
+**Restructured 2026-11-15 (`REVISION_PLAN.md` step B):** 19_1_4 was split in two. `19_1_4_Softmax_and_the_Loss.ipynb` keeps Sections 1 and 2 (softmax, the loss), and the new `19_1_5_What_One_Neuron_Cant_Do.ipynb` holds XOR and the hidden layer as its Sections 1 and 2, with a new opening and setup cell. The on-ramp is now five classes. The topic cuts for this module (19_1_1's 30-versions experiment and Baseline 3, 19_1_2's Section 4, the sigmoid aside in 19_1_4) are step D work and haven't been made yet.
+
 Decided 2026-10-24: **teach the on-ramp through the week-1 image model.** Every session works on the Pets model from 19_0: its predictions, probabilities, training curves and cached features. Newcomers learn the ML basics on something they just built. 377 graduates recognize the ideas but see them on new material instead of redoing Titanic and penguins.
 
 The trimmed 377 notebooks are **not** class time. Since the only required reading is each class's own notebook, they're optional reference for newcomers who want more (link the cs377 sources from each notebook's header).
@@ -25,7 +27,7 @@ NumPy/pandas: no separate primer (it would have been pre-work). Teach the few Nu
 - 19_0's history only runs 8 epochs, where validation accuracy levels off but doesn't drop, so 19_1_1's overfitting demo trains a last layer on the cached features instead (full batch, Adam lr 0.003, 300 epochs). Overfitting on frozen features is mild: validation accuracy stays near 0.91, so the loss plot carries the point.
 - 19_1_1 extension: what happens with fewer training photos (the 19_0 `IMAGES_PER_BREED` setting).
 - 19_1_4's XOR points must match 20_1_1's XOR data exactly.
-- Datasets: Pets (from 19_0) and the XOR toy. Penguins appears in 20_0_3; Fashion-MNIST in 21_0_1. Breast cancer is no longer used in the course.
+- Datasets: Pets (from 19_0) and the XOR toy. Penguins appears in 20_0_2; Fashion-MNIST in 21_0_1. Breast cancer is no longer used in the course.
 
 ## As built (2026-10-25; numbers updated after the 2026-11-03 Pets split rebuild)
 - **19_1_1**: NumPy arrays, masks and accuracy; three baselines (most common 0.25, random about 0.25, species-then-guess about 0.5); the memorizer; train/val/test accuracy; 300 epochs on cached features (val loss lowest at epoch 105); the selection demo (30 versions, repeated 20 times since 2026-11-03: winner +0.054 over average on validation, +0.012 on test).

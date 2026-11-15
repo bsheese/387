@@ -1,17 +1,16 @@
 class,notebook,pair_sections,required,extra_credit
-19_0_1,19_onramp/19_0_Whole_Game/19_0_1_Your_First_Image_Model.ipynb,S1 S2 S3 S4 S5,4,2
+19_0_1,19_onramp/19_0_Whole_Game/19_0_1_Your_First_Image_Model.ipynb,S1 S2 S3 S4 S5,3,2
 19_0_2,19_onramp/19_0_Whole_Game/19_0_2_What_Just_Happened.ipynb,S3 S4 S5 S6 S9,5,2
 19_1_1,19_onramp/19_1_ML_Foundations/19_1_1_Is_It_Any_Good.ipynb,S1 S2 S3 S5,5,2
 19_1_2,19_onramp/19_1_ML_Foundations/19_1_2_Confusion_Matrix.ipynb,S1 S2 S3,5,2
 19_1_3,19_onramp/19_1_ML_Foundations/19_1_3_One_Neuron.ipynb,S1 S2 S3,5,2
-19_1_4,19_onramp/19_1_ML_Foundations/19_1_4_Softmax_and_XOR.ipynb,S1 S2,5,2
-19_1_5,19_onramp/19_1_ML_Foundations/19_1_4_Softmax_and_XOR.ipynb,S3 S4,5,2
-20_0_1,20_how_networks_learn/20_0_PyTorch_Basics/20_0_2_Autograd.ipynb,S1 S2 S3 S5,6,2
-20_0_2,20_how_networks_learn/20_0_PyTorch_Basics/20_0_3_Gradient_Descent.ipynb,S1 S2 S3 S4 S5 S6,6,2
+19_1_4,19_onramp/19_1_ML_Foundations/19_1_4_Softmax_and_the_Loss.ipynb,S1 S2,5,2
+19_1_5,19_onramp/19_1_ML_Foundations/19_1_5_What_One_Neuron_Cant_Do.ipynb,S1 S2,5,2
+20_0_1,20_how_networks_learn/20_0_PyTorch_Basics/20_0_1_Autograd.ipynb,S1 S2 S3 S5,6,2
+20_0_2,20_how_networks_learn/20_0_PyTorch_Basics/20_0_2_Gradient_Descent.ipynb,S1 S2 S3 S4 S5 S6,6,2
 20_1_1,20_how_networks_learn/20_1_Network_Anatomy/20_1_1_Anatomy_of_a_Network.ipynb,S2 S3 S4,6,2
 21_0_1,21_training/21_0_Training_Loop/21_0_1_Training_Loop.ipynb,S2 S3 S4 S6,6,2
-21_1_1,21_training/21_1_Practical_Training/21_1_1_Overfitting_and_Regularization.ipynb,S1 S2 S3 S5,6,2
-21_1_1,21_training/21_1_Practical_Training/21_1_2_Training_a_Model_Well.ipynb,S1,,
+21_1_1,21_training/21_1_Practical_Training/21_1_1_Overfitting_and_Regularization.ipynb,S1 S2 S3 S5 S6 a_checklist_for_training_a_network,6,2
 22_0_1,22_images/22_0_Convolution_and_CNNs/22_0_1_Convolution_by_Hand.ipynb,S1 S2 S4 S5 S6,6,2
 22_0_2,22_images/22_0_Convolution_and_CNNs/22_0_2_First_CNN.ipynb,S1 S2 S3 S4 S6,6,2
 22_1_1,22_images/22_1_Transfer_Learning/22_1_1_Transfer_Learning.ipynb,S1 S2 S3 S4 S5,6,2

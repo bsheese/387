@@ -2,6 +2,8 @@
 
 **Status:** rewritten 2026-10-25 as two notebooks (no saved outputs). **Days:** 2 of unit 21's 3. **Assumes:** 21_0_1.
 
+**Restructured 2026-11-15 (`REVISION_PLAN.md` step B):** 21_1_2 was deleted. Its early stopping is now Section 6 of 21_1_1, rewritten to keep the best weights in memory with a patience of 5 on the 1,000-image run, followed by a shortened checklist. The schedule, checkpoint files and the full recipe went with 21_1_2. The cut of weight decay (21_1_1 Section 4) and the rewording from the five-seed check are step D work. Items below that mention 21_1_2 are historical.
+
 Decided 2026-10-25: the five old notebooks (dropout, batch norm, LR schedules, checkpointing, full pipeline) and the exercise (21_1_9, wine) became two. Batch norm moved to 22_0; 21_1_1 only explains its train/eval behavior (and why 19_0 kept ResNet-18 in eval mode).
 
 ## Notebooks

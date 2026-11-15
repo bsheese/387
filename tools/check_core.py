@@ -8,13 +8,15 @@ notebook (the student's required reading before class), and the required and
 extra-credit question counts, and flags anything over the plan's limits.
 
 Sections are the notebooks' own "## Section N:" headings, written S1, S2, ...
+Other "## " headings are written as a lowercase slug of the title, for example
+before_we_start_tensors or a_checklist_for_training_a_network.
 A section runs from its heading to the next "## " heading, so it includes the
 interpretation text after its code cells. Words in <details> boxes are left
 out, since the boxes are optional.
 
-Until REVISION_PLAN.md step B is done, the CSV points at the current
-notebooks with their current section numbers, so the counts are before the
-cuts and the additions. Step B updates the CSV to the new files and numbers.
+Since step B of REVISION_PLAN.md (2026-11-15) the CSV points at the
+restructured notebooks. Their topic cuts come in step D, so until a unit is
+rebuilt its counts include material that step D removes.
 
 Usage:
     python tools/check_core.py            # table for every class
@@ -56,7 +58,7 @@ def sections(path):
                 if m:
                     title = m.group(1).strip()
                     sec = re.match(r"Section (\d+)\b", title)
-                    current = f"S{sec.group(1)}" if sec else title.lower()
+                    current = f"S{sec.group(1)}" if sec else re.sub(r"[^a-z0-9]+", "_", title.lower()).strip("_")
                     out.setdefault(current, [0, 0])
                 else:
                     out[current][0] += words(line)

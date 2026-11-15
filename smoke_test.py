@@ -51,7 +51,8 @@ VENV_DIR = ROOT / "venv"
 DATA_DIR = ROOT / "data"
 
 # tools/ holds colab_check.ipynb, which runs this script itself.
-EXCLUDE_DIR_PARTS = {"venv", ".ipynb_checkpoints", "old", "old_material", "_site", ".ignore", "tools"}
+# extras/ holds optional notebooks that are no longer part of the course (see extras/README.md).
+EXCLUDE_DIR_PARTS = {"venv", "venv-colab", ".ipynb_checkpoints", "old", "old_material", "_site", ".ignore", "tools", "extras"}
 
 # Notebooks that are committed with their outputs (paths relative to the repo root).
 KEEP_OUTPUTS = {
@@ -62,9 +63,6 @@ KEEP_OUTPUTS = {
     "22_images/22_0_Convolution_and_CNNs/22_0_2_First_CNN.ipynb",
     "22_images/22_1_Transfer_Learning/22_1_1_Transfer_Learning.ipynb",
     "22_images/22_1_Transfer_Learning/22_1_2_What_CNNs_Get_Wrong.ipynb",
-    # 22_2: the autoencoder trains for a few minutes on a CPU; the diffusion notebook runs large pretrained models.
-    "22_images/22_2_Autoencoders_and_Diffusion/22_2_1_Denoising_Autoencoder.ipynb",
-    "22_images/22_2_Autoencoders_and_Diffusion/22_2_2_Diffusion.ipynb",
     # 23_2_2: fine-tuning takes about two hours on a CPU. 23_3: sampled and generated text the markdown describes.
     "23_language/23_2_Pretrained_Transformers/23_2_2_Fine_Tuning_DistilBERT.ipynb",
     "23_language/23_3_Generation_and_Limits/23_3_1_Text_Generation.ipynb",

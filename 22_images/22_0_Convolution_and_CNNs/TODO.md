@@ -2,6 +2,8 @@
 
 **Status:** drafted 2026-10-25 (two notebooks). **Days:** 2 of unit 22's 6. **Assumes:** 21 (reuses 21_1_2's recipe).
 
+**Note 2026-11-15:** 21_1_2 no longer exists (merged into 21_1_1), and 22_2 moved to `extras/`. 22_0_2 still refers to 21_1_2's recipe and quotes its 0.869 and 0.374; step D rewrites it with Adam and the best epoch and without batch norm (five-seed check in `tools/seed_check_results.json`).
+
 Decided 2026-10-25: augmentation is a section of 22_0_2, not its own notebook (unit 22 = 22_0_1, 22_0_2, 22_1_1, 22_1_2, 22_2_1, 22_2_2, one day each). Batch norm moved here from 21_1.
 
 ## Notebooks
